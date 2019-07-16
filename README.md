@@ -22,7 +22,7 @@ pod 'IndoorMapFramework'
 
 ## Author
 
-641540230@qq.com, myl90@126.com
+myldast1@126.com
 
 ## License
 
