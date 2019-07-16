@@ -1,0 +1,6 @@
+framework module Pods_IndoorMapFramework_Tests {
+  umbrella header "Pods-IndoorMapFramework_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

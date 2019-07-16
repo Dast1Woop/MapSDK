@@ -1,0 +1,22 @@
+{
+  "name": "IndoorMapFramework",
+  "version": "0.1.0",
+  "summary": "A short description of IndoorMapFramework.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/641540230@qq.com/IndoorMapFramework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "641540230@qq.com": "myl90@126.com"
+  },
+  "source": {
+    "git": "https://github.com/641540230@qq.com/IndoorMapFramework.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "IndoorMapFramework/Classes/**/*"
+}
