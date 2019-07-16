@@ -19,9 +19,34 @@ NS_ASSUME_NONNULL_BEGIN
 /** mapID */
 @property(nonatomic, copy) NSString *mapId;
 
+/**
+ 通过经纬度创建路径规划点
+
+ @param lng 经度
+ @param lat 纬度
+ @return HTMRoutePlanNode 对象
+ */
 - (instancetype)initWithLng:(double)lng lat:(double)lat;
+
+/**
+  通过经纬度创建路径规划点
+
+ @param lng 经度
+ @param lat 纬度
+ @return TMRoutePlanNode 对象
+ */
 + (instancetype)nodeWithLng:(double)lng lat:(double)lat;
 
+/**
+ 通过经纬度等参数创建路径规划点
+
+ @param lng 经度
+ @param lat 纬度
+ @param floorID 楼层id
+ @param name 节点名
+ @param mapId 节点所在地图id
+ @return TMRoutePlanNode 对象
+ */
 + (instancetype)nodeWithLng:(double)lng
                         lat:(double)lat
                     floorID:(int)floorID

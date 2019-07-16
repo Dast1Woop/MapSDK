@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 当前页码
 @property (nonatomic, assign) int pageNum;
 
-///行政区域id，与regionId只能二选一进行赋值
+///行政区域id，与mapId只能二选一进行赋值
 @property(nonatomic, copy) NSString *regionId;
 
 /// 地图ID，一般指的是建筑id，与regionId只能二选一进行赋值

@@ -14,6 +14,8 @@
 @class HTMPOISearchRequestByID;
 @class HTMPOISearchRequestByLocation;
 @class HTMPOISearchResponse;
+@class HTMPOICategorySearchRequest;
+@class HTMPOICategorySearchResponse;
 
 @protocol HTMSearchDelegate;
 
@@ -37,9 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * @brief POI分类查询接口
- * @param request 查询选项。具体属性字段请参考 `HTMPOISearchRequestByID` 类。
+ * @param request  HTMPOICategorySearchRequest类对象
  */
-//- (void)HTMPoiCategorySearch:(HTMPoiSearchRequest *)request;
+- (void)HTMPoiCategorySearch:(HTMPOICategorySearchRequest *)request;
 
 /**
  * @brief 根据地图id或区域id查询POI信息
@@ -86,10 +88,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * @brief POI分类查询回调方法
- * @param request 查询选项。具体属性字段请参考 `HTMPoiSearchRequest` 类。
+ * @param request 查询选项。具体属性字段请参考 `HTMPOICategorySearchRequest` 类。
  * @param response 查询结果。具体属性字段请参考 `HTMPoiSearchResponse` 类。
  */
-//- (void)onPOICategorySearchDone:(HTMPoiSearchRequest *)request response:(HTMPoiSearchResponse *)response;
+- (void)onPOICategorySearchDone:(HTMPOICategorySearchRequest *)request response:(HTMPOICategorySearchResponse *)response;
 
 /**
  * @brief POI查询回调方法
