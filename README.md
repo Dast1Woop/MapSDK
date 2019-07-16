@@ -22,10 +22,6 @@ it, simply add the following line to your Podfile:
 pod 'IndoorMapFramework'
 ```
 
-## Author
-
-myldast1@126.com
-
 ## License
 
 IndoorMapFramework is available under the MIT license. See the LICENSE file for more info.
