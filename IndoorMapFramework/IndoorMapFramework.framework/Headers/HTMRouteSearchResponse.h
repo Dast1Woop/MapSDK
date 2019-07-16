@@ -16,6 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 ///路径信息
 @property(nonatomic, strong) HTMRoutePaths *routePaths;
 
+
+/**
+ 类方法创建对象
+
+ @param routePaths HTMRoutePaths对象
+ @return HTMRouteSearchResponse对象
+ */
 + (instancetype)responseWithRoutePaths:(HTMRoutePaths *)routePaths;
 @end
 

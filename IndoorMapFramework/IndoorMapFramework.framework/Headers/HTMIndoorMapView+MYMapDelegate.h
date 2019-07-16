@@ -40,9 +40,13 @@ featureOrMapDidSelected:(MGLPolygonFeature * _Nullable)feature
               isFeature:(BOOL)isFeature
            featureCoor:(CLLocationCoordinate2D)coor;
 
+
 /**
- *楼层切换事件
- **/
+ 楼层切换事件
+
+ @param indoorMapView HTMIndoorMapView对象
+ @param floor HTMFloorConfig对象
+ */
 -(void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView floorDidSelected:(HTMFloorConfig *)floor;
 
 

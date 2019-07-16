@@ -2,10 +2,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MultiDelegateOC : NSObject
+@interface HTMMultiDelegateOC : NSObject
 
 /**
- The array of registered delegates.
+ The array of registered delegates.实现一对多代理
  */
 @property (readonly, nonatomic) NSPointerArray* delegates;
 
@@ -20,11 +20,40 @@
 @property (nonatomic, assign) BOOL silentWhenEmpty;
 
 
+/**
+ 添加代理对象到delegates数组中
+
+ @param delegate 代理对象
+ */
 - (void)addDelegate:(id)delegate;
+    
+/**
+ 添加delegate代理对象，且放到otherDelegate之前
+
+ @param delegate 代理对象
+ @param otherDelegate 其他代理对象
+ */
 - (void)addDelegate:(id)delegate beforeDelegate:(id)otherDelegate;
+    
+/**
+ 添加delegate代理对象，且放到otherDelegate之后
+ 
+ @param delegate 代理对象
+ @param otherDelegate 其他代理对象
+ */
 - (void)addDelegate:(id)delegate afterDelegate:(id)otherDelegate;
 
+    
+/**
+ 从delegates数组中移除代理对象
+
+ @param delegate 代理对象
+ */
 - (void)removeDelegate:(id)delegate;
+    
+/**
+ 移除delegates数组中所有代理对象
+ */
 - (void)removeAllDelegates;
 
 @end
