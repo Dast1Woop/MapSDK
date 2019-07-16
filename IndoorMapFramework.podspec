@@ -21,16 +21,16 @@ Pod::Spec.new do |s|
     地图SDK，具有地图显示，路径规划，POI搜索等功能。
     DESC
     
-    s.homepage         = 'https://github.com/641540230@qq.com/IndoorMapFramework'
+    s.homepage         = 'https://github.com/JyyJDast1/MapSDK'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
-    s.author           = { '641540230@qq.com' => 'myl90@126.com' }
-    s.source           = { :git => 'https://github.com/641540230@qq.com/IndoorMapFramework.git', :tag => s.version.to_s }
+    s.author           = { 'myldast1@126.com' => 'myldast1@126.com' }
+    s.source           = { :git => 'https://github.com/JyyJDast1/MapSDK.git', :tag => s.version.to_s }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
     
     s.ios.deployment_target = '10.0'
     s.requires_arc = true
-    s.source_files = 'IndoorMapFramework/Classes/**/*'
+    #s.source_files = 'IndoorMapFramework/Classes/**/*'
     
     # s.resource_bundles = {
     #   'IndoorMapFramework' => ['IndoorMapFramework/Assets/*.png']
@@ -46,4 +46,5 @@ Pod::Spec.new do |s|
     
     #表示pod库项目依赖自己的framework
     s.vendored_frameworks = 'IndoorMapFramework/*.{framework}'
+    s.resource = 'IndoorMapFramework/HTMapBundle.bundle'
 end
