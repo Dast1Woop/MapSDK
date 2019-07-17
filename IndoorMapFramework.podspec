@@ -18,9 +18,6 @@ Pod::Spec.new do |s|
     #   * Finally, don't worry about the indent, CocoaPods strips it!
     
     s.description      = <<-DESC
-    v0.5.5beta
-        beta环境；
-        去除debug模式下的log；
     地图SDK，具有地图显示，路径规划，POI搜索等功能。
     DESC
     

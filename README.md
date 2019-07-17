@@ -15,13 +15,6 @@
 * 本SDK支持竖屏iPhone或iPad；
 * 最低支持版本为 iOS**10.0**；
 
-## 更新说明 
-### v0.5.5beta
-* 支持大地图显示；
-* 路径规划；
-* poi和poi分类搜索；
-* ...  
-
 # 使用
 ## 工程设置
 
@@ -56,6 +49,13 @@ pod 'IndoorMapFramework'
 ### 代码引用
 在需要使用地图的类中，导入下面头文件即可：
 `#import <IndoorMapFramework/IndoorMapFramework.h>`
+
+## 更新说明 
+### v0.5.5beta
+* 支持大地图显示；
+* 路径规划；
+* poi和poi分类搜索；
+* ...  
 
 ## 执照
 
