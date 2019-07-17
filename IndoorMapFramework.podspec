@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'IndoorMapFramework'
-    s.version          = '0.5.3.1'
+    s.version          = '0.5.4'
     s.summary          = '地图SDK'
     
     # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
     #   * Finally, don't worry about the indent, CocoaPods strips it!
     
     s.description      = <<-DESC
-    v0.5.3.1
+    v0.5.4
         测试bundle能否正常使用
     地图SDK，具有地图显示，路径规划，POI搜索等功能。
     DESC
