@@ -52,7 +52,7 @@ pod 'IndoorMapFramework'
 
 ## 更新说明 
 
-### v0.5.5beta2
+### v0.5.5beta3
 * 支持大地图显示；
 * 路径规划；
 * poi和poi分类搜索；
