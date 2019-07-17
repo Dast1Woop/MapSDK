@@ -8,9 +8,8 @@
 
 # 说明
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## 示例
+要运行示例项目，请克隆repo，然后首先从Example目录运行`pod install`。
 
 ## 支持
 * 本SDK支持竖屏iPhone或iPad；
@@ -58,6 +57,6 @@ pod 'IndoorMapFramework'
 在需要使用地图的类中，导入下面头文件即可：
 `#import <IndoorMapFramework/IndoorMapFramework.h>`
 
-## License
+## 执照
 
-IndoorMapFramework is available under the MIT license. See the LICENSE file for more info.
+IndoorMapFramework在MIT许可下可用。 有关详细信息，请参阅LICENSE文件。
