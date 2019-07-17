@@ -24,7 +24,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 * ...  
 
 # 使用
-## 工程设置：
+## 工程设置
 
 ### Build Settings配置
 在TARGETS-Build Settings-Other Linker Flags中添加如下内容：-ObjC;如果已经存在，就无需再添加了。
@@ -52,7 +52,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ```swift
 pod 'IndoorMapFramework'
 ```
-* 执行 **pod update** 进行更新：
+* 执行 **pod update** 进行更新
 
 ### 代码引用
 在需要使用地图的类中，导入下面头文件即可：
