@@ -1,16 +1,50 @@
 PODS:
-  - IndoorMapFramework (0.1.0)
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - IndoorMapFramework (0.5.3):
+    - AFNetworking (~> 3.2.1)
+    - Mapbox-iOS-SDK (~> 4.10.0)
+    - Masonry (~> 1.1.0)
+    - MJExtension (~> 3.0.17)
+  - Mapbox-iOS-SDK (4.10.0)
+  - Masonry (1.1.0)
+  - MJExtension (3.0.17)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - IndoorMapFramework (from `../`)
+  - IndoorMapFramework
+  - SVProgressHUD (~> 2.2.5)
 
-EXTERNAL SOURCES:
-  IndoorMapFramework:
-    :path: "../"
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - IndoorMapFramework
+    - Mapbox-iOS-SDK
+    - Masonry
+    - MJExtension
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
-  IndoorMapFramework: 9d50e45dfe996c7e628f9b436ad307a15c5033b9
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  IndoorMapFramework: 35d106129d28c6c32d1fa54cf218a50cddee8ed9
+  Mapbox-iOS-SDK: 8b1b777de7de373cdf000994c91af101ef886477
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 3a68ed9ccc02cf76d91f4f0e5ab79d0a60a5cc6c
+PODFILE CHECKSUM: 423c80feab6214f1e721f32ef87649575cafad62
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.4

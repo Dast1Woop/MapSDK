@@ -47,4 +47,5 @@ Pod::Spec.new do |s|
     #表示pod库项目依赖自己的framework
     s.vendored_frameworks = 'IndoorMapFramework/*.{framework}'
     #s.resource = 'IndoorMapFramework/HTMapBundle.bundle'
+    s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 end

@@ -1,10 +1,12 @@
 use_frameworks!
 
-platform :ios, '8.0'
+platform :ios, '10.0'
 
 target 'IndoorMapFramework_Example' do
-  pod 'IndoorMapFramework', :path => '../'
-
+  
+ pod 'IndoorMapFramework'
+ pod 'SVProgressHUD','~>2.2.5'
+ 
   target 'IndoorMapFramework_Tests' do
     inherit! :search_paths
 
