@@ -17,7 +17,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 * 最低支持版本为 iOS**10.0**；
 
 ## 更新说明 
-### v0.53
+### v0.5.5beta
 * 支持大地图显示；
 * 路径规划；
 * poi和poi分类搜索；
@@ -28,14 +28,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### Build Settings配置
 在TARGETS-Build Settings-Other Linker Flags中添加如下内容：-ObjC;如果已经存在，就无需再添加了。
-![e344383adbb87c0cbfe24fe85b75b3b3.png](evernotecid://5826E17D-CECA-4197-86B0-A512EE865D69/appyinxiangcom/12719096/ENResource/p16594)
-
 
 ### info.plist配置
 在info.plist中添加如下设置(NSAllowsArbitraryLoads是为了使APP可以访问http协议接口)：
-![c3f933e7a3ea819e7c8f44e3ed99c9b6.png](evernotecid://5826E17D-CECA-4197-86B0-A512EE865D69/appyinxiangcom/12719096/ENResource/p16595)
-![d48cdae9a030f1770d63a4b387a19fdb.png](evernotecid://5826E17D-CECA-4197-86B0-A512EE865D69/appyinxiangcom/12719096/ENResource/p16596)
-如上图，在第一个<dict>下面复制粘贴以下代码（***可能有变化，请注意对比。如已存在，无需再次加入***）：
 
 ```swift
 <key>MGLMapboxMetricsEnabledSettingShownInApp</key>
@@ -53,11 +48,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## 代码设置
 ### Podfile配置
-* Podfile中添加如下库（***可能有变化，请注意对比，如已存在，无需再次加入***）
-* 执行 **pod update** 进行更新：
+* Podfile中添加库
 ```swift
 pod 'IndoorMapFramework'
 ```
+* 执行 **pod update** 进行更新：
 
 ### 代码引用
 在需要使用地图的类中，导入下面头文件即可：
