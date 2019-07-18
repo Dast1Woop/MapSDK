@@ -52,6 +52,9 @@ pod 'IndoorMapFramework'
 
 ## 更新说明 
 
+### v0.5.7
+修复HTMPoiCategory类名错误问题
+
 ### v0.5.6beta
 * 支持大地图显示；
 * 路径规划；

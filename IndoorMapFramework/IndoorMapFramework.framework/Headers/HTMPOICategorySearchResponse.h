@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HTMPOICategory;
+@class HTMPoiCategory;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HTMPOICategorySearchResponse : NSObject
 
 ///HTMPOICategory对象数组
-@property (nonatomic, copy) NSArray<HTMPOICategory *> *poiCategoriesArr;
+@property (nonatomic, copy) NSArray<HTMPoiCategory *> *poiCategoriesArr;
 
 @end
 
