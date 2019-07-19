@@ -67,11 +67,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 距离屏幕中心点最近的建筑
 @property(nonatomic, strong) HTMBuildingModel *gNearestBuildingModel;
 
-/// 通过楼层id，建筑id和地图对象切楼层和建筑
+/// 在屏幕可视范围内，通过楼层id，建筑id切楼层和建筑
 /// @param floorID 楼层id
 /// @param buildingID 建筑id
-- (void)selectFloorID:(int)floorID
-           buildingID:(NSString *)buildingID;
+- (void)selectFloorID:(int)floorID buildingIDInCurrentScreenArea:(NSString *)buildingID;
 
 /**
  显示规划的路径
