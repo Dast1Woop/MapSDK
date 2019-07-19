@@ -61,7 +61,7 @@ git_commit(path: ["./IndoorMapFramework.podspec", "./changelog.txt"], message: "
 
   add_git_tag(
     tag: target_version,
-    message: changelog_from_git_commits(commits_count:1)
+    message: changelog_from_git_commits(commits_count:2)
   )                              # 设置 tag
   push_to_git_remote                                            # 推送到 git 仓库
 #pod_push(path: "../IndoorMapFramework.podspec")
