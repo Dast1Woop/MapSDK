@@ -51,15 +51,7 @@ pod 'IndoorMapFramework'
 `#import <IndoorMapFramework/IndoorMapFramework.h>`
 
 ## 更新说明 
-
-### v0.5.7
-修复HTMPoiCategory类名错误问题
-
-### v0.5.6beta
-* 支持大地图显示；
-* 路径规划；
-* poi和poi分类搜索；
-* ...  
+请参考https://github.com/JyyJDast1/MapSDK/releases相关tag对应注释
 
 ## 执照
 
