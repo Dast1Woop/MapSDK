@@ -58,7 +58,7 @@ platform :ios do
 
   add_git_tag tag: target_version                               # 设置 tag
   push_to_git_remote                                            # 推送到 git 仓库
-  pod_push(path: "../IndoorMapFramework.podspec")
+  pod trunk push IndoorMapFramework.podspec --verbose --allow-warnings
 
   end
 
