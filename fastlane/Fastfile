@@ -54,7 +54,7 @@ platform :ios do
   version_bump_podspec(path: "./IndoorMapFramework.podspec",
              version_number: target_version)                    # 更新 podspec
 
-changelog_from_git_commits 
+#changelog_from_git_commits #获取注释后不知如何写到文件中
 git_commit(path: ["./IndoorMapFramework.podspec", "./changelog.txt"], message: "Version Bump")
 #git_commit_all(message: "Bump version to #{target_version}")  # 提交版本号修改
 #commit_version_bump(message: "Bump version to #{target_version}",xcodeproj: "IndoorMapFramework.xcodeproj")  # 提交版本号修改
