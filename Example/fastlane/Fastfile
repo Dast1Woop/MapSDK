@@ -46,7 +46,7 @@ platform :ios do
   ensure_git_status_clean                                       # 确认没有未提交的文件
   #scan                                                          # 运行测试
 
-  sync_build_number_to_git                                      # 将 build 号设为 git commit 数
+  #sync_build_number_to_git                                      # 将 build 号设为 git commit 数
   increment_version_number(version_number: target_version)      # 设置版本号
 
   version_bump_podspec(path: "../IndoorMapFramework.podspec",
