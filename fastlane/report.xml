@@ -5,47 +5,47 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.00074">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000733">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00038">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00036">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: ensure_git_branch" time="0.012892">
+      <testcase classname="fastlane.lanes" name="2: ensure_git_branch" time="0.013312">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: ensure_git_status_clean" time="0.015986">
+      <testcase classname="fastlane.lanes" name="3: ensure_git_status_clean" time="0.018333">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_version_number" time="1.479321">
+      <testcase classname="fastlane.lanes" name="4: increment_version_number" time="1.613059">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: version_bump_podspec" time="0.002326">
+      <testcase classname="fastlane.lanes" name="5: version_bump_podspec" time="0.002314">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: git_commit" time="0.034522">
+      <testcase classname="fastlane.lanes" name="6: git_commit" time="0.03423">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: add_git_tag" time="0.020775">
+      <testcase classname="fastlane.lanes" name="7: add_git_tag" time="0.019053">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="8: push_to_git_remote" time="5.540912">
+      <testcase classname="fastlane.lanes" name="8: push_to_git_remote" time="5.608493">
         
       </testcase>
     
