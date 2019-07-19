@@ -51,7 +51,7 @@ pod 'IndoorMapFramework'
 `#import <IndoorMapFramework/IndoorMapFramework.h>`
 
 ## 更新说明 
-请参考https://github.com/JyyJDast1/MapSDK/releases相关tag对应注释
+请参考 https://github.com/JyyJDast1/MapSDK/releases 相关tag对应注释
 
 ## 执照
 
