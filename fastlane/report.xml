@@ -5,24 +5,57 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.00078">
+      <testcase classname="fastlane.lanes" name="00: Verifying required fastlane version" time="0.000767">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000366">
+      <testcase classname="fastlane.lanes" name="01: default_platform" time="0.00039">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: ensure_git_branch" time="0.014126">
+      <testcase classname="fastlane.lanes" name="02: ensure_git_branch" time="0.012996">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: ensure_git_status_clean" time="0.016302">
+      <testcase classname="fastlane.lanes" name="03: ensure_git_status_clean" time="0.016356">
         
-          <failure message="/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:217:in `block in execute_action'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:213:in `chdir'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:213:in `execute_action'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:135:in `trigger_action_by_name'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/fast_file.rb:146:in `method_missing'&#10;Fastfile:48:in `block (2 levels) in parsing_binding'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/lane_manager.rb:52:in `cruise_lane'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/commands_generator.rb:105:in `block (2 levels) in run'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/command.rb:178:in `call'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/command.rb:178:in `call'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/command.rb:153:in `run'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/runner.rb:446:in `run_active_command'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:38:in `run!'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/delegates.rb:15:in `run!'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/commands_generator.rb:302:in `run'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/cli_tools_distributor.rb:59:in `take_off'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/bin/fastlane:15:in `&lt;top (required)&gt;'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/bin/fastlane:22:in `load'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/bin/fastlane:22:in `&lt;main&gt;'&#10;&#10;Git repository is dirty! Please ensure the repo is in a clean state by commiting/stashing/discarding all changes first." />
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="04: increment_version_number" time="1.523474">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="05: version_bump_podspec" time="0.003207">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="06: changelog_from_git_commits" time="0.057002">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="07: git_commit" time="0.034655">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="08: changelog_from_git_commits" time="0.048882">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: add_git_tag" time="0.022427">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: push_to_git_remote" time="5.597171">
         
       </testcase>
     
