@@ -46,12 +46,12 @@ featureOrMapDidSelected:(MGLPolygonFeature * _Nullable)feature
   建筑/楼层 切换事件
 
  @param indoorMapView HTMIndoorMapView对象
- @param floorID 楼层id
- @param buildingID 建筑id
+ @param floorM 楼层模型
+ @param buildingM 建筑模型
  */
 -(void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView
-         didSelectFloor:(int)floorID
-               building:(NSString *)buildingID;
+         didSelectFloor:(HTMFloorConfig *)floorM
+               building:(HTMBuildingModel *)buildingM;
 
 
 @end

@@ -55,6 +55,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** 是否可选中模型 */
 @property (nonatomic, assign, getter=isCanSelectFeatureOnMap) BOOL canSelectFeatureOnMap;
 
+///当前地图显示的被选中的建筑模型，不一定是距离屏幕中心点最近的模型
+@property(nonatomic, strong) HTMBuildingModel *buildingModelMapShowing;
+
+/// 距离屏幕中心点最近的建筑
+@property(nonatomic, strong) HTMBuildingModel *gNearestBuildingModel;
+
+///当前地图显示的楼层模型，包含楼层id和楼层名
+@property(nonatomic, strong) HTMFloorConfig *floorModelMapShowing;
+
 /// 当前屏幕特定可见区域包含HTMFloorConfig*对象的楼层数组
 @property (nonatomic, copy) NSArray<HTMFloorConfig*> *floorConfigsArr;
 
@@ -64,8 +73,6 @@ NS_ASSUME_NONNULL_BEGIN
 ///气泡点数组，默认每点击一次地图，就会往地图上打一个点，并往此数组中加入对应对象
 @property(nonatomic, strong, nullable) NSMutableArray *gArrM4CalculateAnnotationViews;
 
-/// 距离屏幕中心点最近的建筑
-@property(nonatomic, strong) HTMBuildingModel *gNearestBuildingModel;
 
 /// 在屏幕可视范围内，通过楼层id，建筑id切楼层和建筑
 /// @param floorID 楼层id
