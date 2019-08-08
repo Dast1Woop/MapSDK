@@ -16,10 +16,10 @@ Pod::Spec.new do |s|
     #   * Try to keep it short, snappy and to the point.
     #   * Write the description between the DESC delimiters below.
     #   * Finally, don't worry about the indent, CocoaPods strips it!
-    
-    s.description      = <<-DESC
-    地图SDK，具有地图显示，路径规划，POI搜索等功能。
-    DESC
+
+    #s.description      = <<-DESC
+    #地图SDK，具有地图显示，路径规划，POI搜索等功能。
+    #DESC
     
     s.homepage         = 'https://github.com/JyyJDast1/MapSDK'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
