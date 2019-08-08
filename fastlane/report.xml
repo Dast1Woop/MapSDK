@@ -5,52 +5,34 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.00076">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000994">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000493">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000448">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: ensure_git_branch" time="0.012725">
+      <testcase classname="fastlane.lanes" name="2: ensure_git_branch" time="0.012927">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: ensure_git_status_clean" time="0.014148">
+      <testcase classname="fastlane.lanes" name="3: ensure_git_status_clean" time="0.013828">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_version_number" time="1.756355">
+      <testcase classname="fastlane.lanes" name="4: increment_version_number" time="1.488617">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: version_bump_podspec" time="0.002711">
+      <testcase classname="fastlane.lanes" name="5: version_bump_podspec" time="0.001971">
         
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: git_commit" time="0.034802">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: changelog_from_git_commits" time="0.015314">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="8: add_git_tag" time="0.019642">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="9: push_to_git_remote" time="7.497739">
+          <failure message="/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:217:in `block in execute_action'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:213:in `chdir'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:213:in `execute_action'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:135:in `trigger_action_by_name'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/fast_file.rb:146:in `method_missing'&#10;Fastfile:54:in `block (2 levels) in parsing_binding'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/lane_manager.rb:52:in `cruise_lane'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/commands_generator.rb:105:in `block (2 levels) in run'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/command.rb:178:in `call'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/command.rb:178:in `call'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/command.rb:153:in `run'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/runner.rb:446:in `run_active_command'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:38:in `run!'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-4.4.3/lib/commander/delegates.rb:15:in `run!'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/commands_generator.rb:302:in `run'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/cli_tools_distributor.rb:59:in `take_off'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.13.0/bin/fastlane:15:in `&lt;top (required)&gt;'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/bin/fastlane:22:in `load'&#10;/Users/Dast 1 2/.fastlane/bin/bundle/bin/fastlane:22:in `&lt;main&gt;'&#10;&#10;Could not find version in podspec content '#&#10;# Be sure to run `pod lib lint IndoorMapFramework.podspec' to ensure this is a&#10;# valid spec before submitting.&#10;#&#10;# Any lines starting with a # are optional, but their use is encouraged&#10;# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html&#10;#&#10;&#10;Pod::Spec.new do |s|&#10;    s.name             = 'IndoorMapFramework'&#10;    s.version  	       = '0.8.5-debug'&#10;    s.summary          = '地图SDK'&#10;    &#10;    # This description is used to generate tags and improve search results.&#10;    #   * Think: What does it do? Why did you write it? What is the focus?&#10;    #   * Try to keep it short, snappy and to the point.&#10;    #   * Write the description between the DESC delimiters below.&#10;    #   * Finally, don't worry about the indent, CocoaPods strips it!&#10;&#10;    #s.description      = &lt;&lt;-DESC&#10;    #地图SDK，具有地图显示，路径规划，POI搜索等功能。&#10;    #DESC&#10;    &#10;    s.homepage         = 'https://github.com/JyyJDast1/MapSDK'&#10;    # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'&#10;    s.license          = { :type =&gt; 'MIT', :file =&gt; 'LICENSE' }&#10;    s.author           = { 'myldast1@126.com' =&gt; 'myldast1@126.com' }&#10;    s.source           = { :git =&gt; 'https://github.com/JyyJDast1/MapSDK.git', :tag =&gt; s.version.to_s }&#10;    # s.social_media_url = 'https://twitter.com/&lt;TWITTER_USERNAME&gt;'&#10;    &#10;    s.ios.deployment_target = '10.0'&#10;    s.requires_arc = true&#10;    #s.source_files = 'IndoorMapFramework/Classes/**/*'&#10;    &#10;    # s.resource_bundles = {&#10;    #   'IndoorMapFramework' =&gt; ['IndoorMapFramework/Assets/*.png']&#10;    # }&#10;    &#10;    # s.public_header_files = 'Pod/Classes/**/*.h'&#10;    s.frameworks = 'UIKit', 'Foundation'&#10;    &#10;    s.dependency 'Mapbox-iOS-SDK','~&gt;4.10.0'&#10;    s.dependency 'MJExtension','~&gt;3.0.17'&#10;    s.dependency 'AFNetworking','~&gt;3.2.1'&#10;    s.dependency 'Masonry','~&gt;1.1.0'&#10;    &#10;    #表示pod库项目依赖自己的framework&#10;    s.vendored_frameworks = 'IndoorMapFramework/*.{framework}'&#10;    #s.resource = 'HTMapBundle.bundle'#会报错&#10;    s.resource_bundles = {&#10;        'HTMapBundle' =&gt; ['IndoorMapFramework/HTMapBundle/*.png']&#10;    }&#10;    s.pod_target_xcconfig = { 'OTHER_LDFLAGS' =&gt; '-lObjC' }&#10;end&#10;'" />
         
       </testcase>
     
