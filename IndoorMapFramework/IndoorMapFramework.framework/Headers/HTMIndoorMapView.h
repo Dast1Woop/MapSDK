@@ -49,8 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///是否有路径正在显示,可以用于判断是否已规划路径
 @property (nonatomic, assign) BOOL isRoutePathShowing;
 
-/// 当前显示的建筑id
-@property (nonatomic, copy) NSString* buildingIDMapShowing;
+/// 已废弃，可通过buildingModelMapShowing.buildingID获取。因为此属性维护需要与buildingModelMapShowing.buildingID同步，容易出错，导致莫名其妙bug
+//@property (nonatomic, copy) NSString* buildingIDMapShowing;
 
 /** 是否可选中模型 */
 @property (nonatomic, assign, getter=isCanSelectFeatureOnMap) BOOL canSelectFeatureOnMap;
