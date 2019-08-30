@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 当前页码
 @property (nonatomic, assign) int pageNum;
 
-/// 当前位置经纬度坐标，暂时无需传入floorID
+/// 当前位置经纬度坐标，floorID 非必须
 @property(nonatomic, strong) HTMGeoCoor *crtGeoCoor;
 
 /// 范围（米）
