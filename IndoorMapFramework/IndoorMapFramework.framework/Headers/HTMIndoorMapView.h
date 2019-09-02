@@ -156,7 +156,12 @@ NS_ASSUME_NONNULL_BEGIN
  @return YES：是；NO：不是
  */
 - (BOOL)judgeIsIndoorLayers:(NSString *)layerID;
-    
+
+
+/**
+ 用于外界重置楼层选择器被选中楼层label的样式。当选择器被选中楼层样式错乱时，建议在控制器的viewDidAppear中调用此方法。
+ */
+- (void)resetColorToSeletedFloorPickersLabel;
     
     
 //start:--------暴露以用于分类中-----------
