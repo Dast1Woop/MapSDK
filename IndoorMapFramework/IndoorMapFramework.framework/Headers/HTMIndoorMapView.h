@@ -43,6 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
 ///当前定位楼层id
 @property (nonatomic, assign) int floorIDLocated;
 
+///获取模型时，触摸点作为查询矩形中心时的矩形范围宽度，如不设置，默认为40个点。
+@property (nonatomic, assign) float pickFeatureRectWidth;
+
+///获取模型时，触摸点作为查询矩形中心时的矩形范围高度，如不设置，默认为40个点。
+@property (nonatomic, assign) float pickFeatureRectHeight;
+
 ///是否隐藏点击地图时的点注释，默认为NO，需要隐藏或自定义时，设置为YES
 @property (nonatomic, assign) BOOL isHidePointAnnotationWhenTapMap;
 
