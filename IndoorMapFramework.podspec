@@ -43,6 +43,7 @@ Pod::Spec.new do |s|
     s.dependency 'MJExtension','~>3.0.17'
     s.dependency 'AFNetworking','~>3.2.1'
     s.dependency 'Masonry','~>1.1.0'
+    s.dependency 'Turf', '~> 0.3'
     
     #表示pod库项目依赖自己的framework
     s.vendored_frameworks = 'IndoorMapFramework/*.{framework}'
