@@ -4,3 +4,8 @@ framework module IndoorMapFramework {
   export *
   module * { export * }
 }
+
+module IndoorMapFramework.Swift {
+    header "IndoorMapFramework-Swift.h"
+    requires objc
+}
