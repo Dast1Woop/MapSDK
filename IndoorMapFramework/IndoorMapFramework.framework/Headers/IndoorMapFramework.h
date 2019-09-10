@@ -50,3 +50,10 @@ FOUNDATION_EXPORT const unsigned char IndoorMapFrameworkVersionString[];
 #import <IndoorMapFramework/HTMBuildingModel.h>
 #import <IndoorMapFramework/HTMSearchObj.h>
 #import <IndoorMapFramework/HTMBuildingModel+MYCategory.h>
+
+#import <IndoorMapFramework/HTMRegionLocationRequest.h>
+#import <IndoorMapFramework/HTMRegionInfoResponse.h>
+#import <IndoorMapFramework/HTMSubRegionsRequest.h>
+
+#import <IndoorMapFramework/HTMPOICategorySearchRequestByType.h>
+

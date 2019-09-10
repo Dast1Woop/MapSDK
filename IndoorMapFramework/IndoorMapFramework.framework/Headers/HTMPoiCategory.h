@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** poi类别 */
-@interface HTMPoiCategory : NSObject
+@interface HTMPoiCategory : NSObject<NSCoding, NSCopying>
 
 /** 地图模型类别 */
 @property(nonatomic, copy) NSString *type;

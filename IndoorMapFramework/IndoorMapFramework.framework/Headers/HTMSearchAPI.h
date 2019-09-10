@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class HTMPoiCategory;
 @class HTMRouteSearchRequest;
 @class HTMRouteSearchResponse;
 
@@ -17,7 +18,13 @@
 @class HTMPOICategorySearchRequest;
 @class HTMPOICategorySearchResponse;
 
+@class HTMRegionLocationRequest;
+@class HTMSubRegionsRequest;
+@class HTMRegionInfoResponse;
+@class HTMPOICategorySearchRequestByType;
+
 @protocol HTMSearchDelegate;
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -43,6 +50,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)HTMPoiCategorySearch:(HTMPOICategorySearchRequest *)request;
 
+
+/**
+ 根据type获取POI类别
+
+ @param request HTMPOICategorySearchRequestByType对象
+ */
+- (void)HTMPoiCategorySearchByType:(HTMPOICategorySearchRequestByType *)request;
+
 /**
  * @brief 根据地图id或区域id查询POI信息
  * @param request 查询选项。具体属性字段请参考 `HTMPOISearchRequestByID` 类。
@@ -60,6 +75,20 @@ NS_ASSUME_NONNULL_BEGIN
  * @param request 查询选项。具体属性字段请参考 `HTMRouteSearchRequest` 类。
  */
 - (void)HTMRouteSearch:(HTMRouteSearchRequest *)request;
+
+/**
+ 根据当前GPS查询所在区域列表
+
+ @param request HTMRegionLocationRequest对象
+ */
+- (void)HTMRegionLocationSearch:(HTMRegionLocationRequest *)request;
+
+/**
+ 根据 HTMSubRegionsRequest 获取子区域信息
+ 
+ @param request HTMSubRegionsRequest对象
+ */
+- (void)HTMSubRegionsSearch:(HTMSubRegionsRequest *)request;
 
 @end
 
@@ -93,6 +122,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)onPOICategorySearchDone:(HTMPOICategorySearchRequest *)request response:(HTMPOICategorySearchResponse *)response;
 
+
+/**
+ 根据type获取POI类别回调
+
+ @param request HTMPOICategorySearchRequestByType对象
+ @param responsePoiCategory HTMPoiCategory对象
+ */
+- (void)onPOICategorySearchByTypeDone:(HTMPOICategorySearchRequestByType *)request response:(HTMPoiCategory *)responsePoiCategory;
+
 /**
  * @brief POI查询回调方法
  * @param request 查询选项。具体属性字段请参考 `HTMPOISearchRequestByID` 类。
@@ -106,6 +144,23 @@ NS_ASSUME_NONNULL_BEGIN
  * @param response 查询结果。具体属性字段请参考 `HTMRouteSearchResponse` 类。
  */
 - (void)onRouteSearchDone:(HTMRouteSearchRequest *)request response:(HTMRouteSearchResponse *)response;
+
+
+/**
+ 根据当前GPS获取所在区域列表 结果
+
+ @param request HTMRegionLocationRequest 请求对象
+ @param responseArr HTMRegionLocationResponse对象组成的数组
+ */
+- (void)onRegionLocationSearchDone:(HTMRegionLocationRequest *)request responseArray:(NSArray<HTMRegionInfoResponse *> *)responseArr;
+
+/**
+ 根据区域id 获取树状区域
+ 
+ @param request HTMRegionLocationRequest 请求对象
+ @param responseArr HTMRegionLocationResponse对象组成的数组
+ */
+- (void)onSubRegionsSearchDone:(HTMSubRegionsRequest *)request responseArray:(NSArray<HTMRegionInfoResponse *> *)responseArr;
 
 
 @end
