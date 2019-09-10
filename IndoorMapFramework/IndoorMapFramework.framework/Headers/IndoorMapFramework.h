@@ -24,6 +24,7 @@ FOUNDATION_EXPORT const unsigned char IndoorMapFrameworkVersionString[];
 
 #import <IndoorMapFramework/HTMPOISearchRequestByID.h>
 #import <IndoorMapFramework/HTMPOISearchRequestByLocation.h>
+#import <IndoorMapFramework/HTMPOISearchRequestByMultiCombine.h>
 #import <IndoorMapFramework/HTMPOISearchResponse.h>
 
 #import <IndoorMapFramework/HTMPOICategorySearchRequest.h>

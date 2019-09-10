@@ -14,7 +14,10 @@
 
 @class HTMPOISearchRequestByID;
 @class HTMPOISearchRequestByLocation;
+@class HTMPOISearchRequestByMultiCombine;
 @class HTMPOISearchResponse;
+
+
 @class HTMPOICategorySearchRequest;
 @class HTMPOICategorySearchResponse;
 
@@ -65,10 +68,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)HTMPOISearchByID:(HTMPOISearchRequestByID *)request;
 
 /**
- * @brief 根据地图id或区域id查询POI信息
+ * @brief  根据当前位置获取POI信息
  * @param request 查询选项。具体属性字段请参考 `HTMPOISearchRequestByID` 类。
  */
 - (void)HTMPOISearchByLocation:(HTMPOISearchRequestByLocation *)request;
+
+
+/**
+ 根据多种组合条件 获取POI信息
+
+ @param request HTMPOISearchRequestByMultiCombine对象
+ */
+- (void)HTMPOISearchByMultiCombine:(HTMPOISearchRequestByMultiCombine *)request;
 
 /**
  * @brief 路线查询接口
@@ -137,6 +148,15 @@ NS_ASSUME_NONNULL_BEGIN
  * @param response 查询结果。具体属性字段请参考 `HTMPOISearchResponse` 类。
  */
 - (void)onPOISearchDone:(id)request response:(HTMPOISearchResponse *)response;
+
+
+/**
+ 
+ 根据多种组合条件 获取POI信息 异步回调
+ @param request HTMPOISearchRequestByMultiCombine 对象
+ @param response HTMPOISearchResponse 对象
+ */
+- (void)onPOISearchDoneByMultiCombine:(HTMPOISearchRequestByMultiCombine *)request response:(HTMPOISearchResponse *)response;
 
 /**
  * @brief 路线回调方法
