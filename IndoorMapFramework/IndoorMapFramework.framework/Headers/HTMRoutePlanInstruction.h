@@ -141,7 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *mapId;
 
 /** 楼层id */
-@property (nonatomic, assign) int floorId;
+@property (nonatomic, copy) NSString *floorId;
 
 /** 路段名称 */
 @property (nonatomic, copy) NSString *name;

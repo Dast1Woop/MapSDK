@@ -18,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 纬度
 @property (nonatomic, assign) double lat;
 
-/// 楼层id
-@property (nonatomic, assign) int floorID;
+/// 室内地图的楼层id
+@property (nonatomic, copy) NSString *floorId;
 
 @end
 

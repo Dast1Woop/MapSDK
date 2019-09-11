@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface HTMPOISearchRequestByMultiCombine : NSObject
 
-/// 包含当前位置经纬度坐标的对象，floorID 非必须
+/// 包含当前位置经纬度坐标的对象，floorID可传可不传
 @property(nonatomic, strong) HTMGeoCoor *crtGeoCoor;
 
 ///范围（米）。配合location使用，默认搜索2000m、5000m、所在市
@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///搜索关键字
 @property(nonatomic, copy) NSString *keyword;
+
+///室内poi类型
+@property(nonatomic, copy) NSString *type;
 
 ///菜单类型code。通过字典接口获取
 @property(nonatomic, copy) NSString *typeCode;
@@ -37,13 +40,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSArray<NSNumber *> *bbox;
 
-///true搜索室内，false搜索室外，null不限
-@property (nonatomic, assign) BOOL indoor;
+///后台规则：true搜索室内，false搜索室外，null不限
+///app规则：1搜索室内，0搜索室外，默认值为-1（不限制，室内+室外）
+@property (nonatomic, assign) int indoor;
 
-///每页记录数，默认10。url传参。当 indoor = null 时不支持分页
+///每页记录数，默认10。url传参。当 indoor = -1 时不支持分页
 @property (nonatomic, assign) int pageSize;
 
-///当前页码，默认1。url传参。当 indoor = null 时不支持分页
+///当前页码，默认1。url传参。当 indoor = -1 时不支持分页
 @property (nonatomic, assign) int pageNum;
 
 ///0获取不支持路径规划（不可点击），默认1获取支持路径规划（可点击）
