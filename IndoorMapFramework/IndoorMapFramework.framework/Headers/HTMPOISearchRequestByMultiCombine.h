@@ -50,9 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
 ///当前页码，默认1。url传参。当 indoor = -1 时不支持分页
 @property (nonatomic, assign) int pageNum;
 
-///0获取不支持路径规划（不可点击），默认1获取支持路径规划（可点击）
-@property (nonatomic, assign) int group;
-
 ///优先策略：wheelchair无障碍优先（默认），distance距离优先
 @property(nonatomic, copy) NSString *priority;
 

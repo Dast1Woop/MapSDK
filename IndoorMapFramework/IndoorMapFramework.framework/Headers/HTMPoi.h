@@ -92,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///地址所在门牌号。室外地图poi专属
 @property(nonatomic, copy) NSString *addrHousenumber;
 
-///POI特殊类型：0时为不支持路径规划（不可点击），1时支持路径规划（可点击）
+//POI特殊类型：无返回支持路径规划（可点击），3为不支持路径规划（不可点击）
 @property (nonatomic, assign) int group;
 
 ///更新时间
