@@ -38,9 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
 ///行政区域id
 @property(nonatomic, copy) NSString *regionId;
 
+/** 边框，[ minLng , minLat, maxLng , maxLat]
+ The bounding box, format:
+ minLng, minLat, maxLng, maxLat */
 @property (nonatomic, copy) NSArray<NSNumber *> *bbox;
 
-///后台规则：true搜索室内，false搜索室外，null不限
 ///app规则：1搜索室内，0搜索室外，默认值为-1（不限制，室内+室外）
 @property (nonatomic, assign) int indoor;
 
@@ -52,6 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///优先策略：wheelchair无障碍优先（默认），distance距离优先
 @property(nonatomic, copy) NSString *priority;
+
+///0:获取不支持路径规划，1:获取支持路径规划，默认为 -1 不限制
+@property (nonatomic, assign) int accessible;
 
 
 
