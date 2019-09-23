@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTMGeoCoor : NSObject
+@interface HTMGeoCoor : NSObject<NSCopying, NSCoding>
 
 /// 经度
 @property (nonatomic, assign) double lng;
@@ -20,6 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 室内地图的楼层id
 @property (nonatomic, copy) NSString *floorId;
+
+/// 墨卡托x坐标
+@property (nonatomic, assign) double x;
+
+/// 墨卡托y坐标
+@property (nonatomic, assign) double y;
 
 @end
 

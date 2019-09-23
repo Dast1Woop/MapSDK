@@ -13,6 +13,7 @@
  */
 #import <UIKit/UIKit.h>
 #import <Mapbox/Mapbox.h>
+#import <CoreLocation/CoreLocation.h>
 @class HTMFloorConfig;
 @class HTMRoutePath;
 @class HTMPoi;
@@ -91,6 +92,18 @@ NS_ASSUME_NONNULL_BEGIN
  @return NSError对象，为nil时代表显示路线成功，否则失败
  */
 -(NSError *)showRoutePath:(HTMRoutePath *)routePath;
+
+
+
+/**
+ 更新用户走过的路径为灰色，每次有新坐标时，都要调用此方法更新灰色路径。
+ 
+ @param pathNumber 投影点所在路段在整个路径规划所有路段中的编号
+ @param crtCoor 投影点坐标
+ @return NSError对象
+ */
+- (NSError *)updateRoutePathUserWalkedWithPathNumber:(int)pathNumber
+                                        crtCoor:(CLLocationCoordinate2D)crtCoor;
 
 /** 置空routePath数据源 并 隐藏规划路径图层 */
 -(void)clearRoutePath;
@@ -181,12 +194,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///当前交叉建筑区域的建筑按钮是否被点击过。当交叉建筑区发生变化时，此属性会被重置为NO
 @property (nonatomic, assign) BOOL isBtn4BuildingClickedInCrtCrossedArea;
 
-/**
- 添加路径图层
- 
- @param style mapview样式
- */
--(void)pmy_addPolylineToStyle:(MGLStyle *)style;
+- (void)pmy_addPolylineToStyle:(MGLStyle *)style;
+- (void)pmy_addWalkedPathPolylineToStyle:(MGLStyle *)style;
 
 /**
  给楼层选择器被选中的标签设置颜色等样式

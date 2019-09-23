@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTMRoutePlanNode : HTMGeoCoor
+@interface HTMRoutePlanNode : HTMGeoCoor<NSCoding, NSCopying>
 
 /** 名称 */
 @property(nonatomic, copy) NSString *name;

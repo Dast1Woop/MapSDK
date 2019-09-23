@@ -34,6 +34,7 @@ FOUNDATION_EXPORT const unsigned char IndoorMapFrameworkVersionString[];
 #import <IndoorMapFramework/HTMRouteSearchResponse.h>
 
 #import <IndoorMapFramework/HTMGeoCoor.h>
+#import <IndoorMapFramework/HTMapCoorTransfor.h>
 
 #import <IndoorMapFramework/HTMFloorConfig.h>
 #import <IndoorMapFramework/HTMEnumDefines.h>

@@ -151,6 +151,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 当前路段 终点，定位拐点为指示的起点或终点 */
 @property(nonatomic, strong) HTMRoutePlanNode *endNode;
+
+///路径号码：路径规划成功后，每段路径会被编号，从0开始。
+@property (nonatomic, assign) NSInteger pathNumber;
+
 @end
 
 NS_ASSUME_NONNULL_END
