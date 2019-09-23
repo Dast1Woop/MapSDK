@@ -15,7 +15,7 @@ IndoorMapFramework/IndoorMapFramework/TJNewCode
 ## 代码说明
 不同 scheme含义：
 * IndoorMapDemo：关联了IndoorMapFramework的demo，运行可查看demo效果
-* IndoorMapFramework：地图SDK，debug模式对应debug接口，release模式对应release接口。代码中指定IS_USE_BETA_4_COCOPODS为1时，代表beta接口。
+* IndoorMapFramework：地图SDK，debug模式对应debug接口，release模式对应release接口。debug模式下：当代码中指定IS_USE_BETA_4_COCOPODS为1时，代表beta接口。
 * HTMapBundle：地图SDK对应图片和xib、storyboard等素材，能切只能存到这里。注意调用方法与普通方式不同。
 * IndoorMapDemo-Beta：对应地图beta环境demo
 * IndoorMapFramework-Beta：仅用于调试，不能用于生成SDK。对应地图beta环境
