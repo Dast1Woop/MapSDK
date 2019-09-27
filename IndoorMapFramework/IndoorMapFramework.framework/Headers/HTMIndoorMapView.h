@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 是否可选中模型 */
 @property (nonatomic, assign, getter=isCanSelectFeatureOnMap) BOOL canSelectFeatureOnMap;
 
-/// 判断当前屏幕中心区域，是否显示了无遮罩的室内建筑
+/// 判断当前屏幕中心区域，是否显示了无遮罩的室内建筑。kvo对此属性无效。如需监听值是否改变，可以 重写- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated，并再里面获取此属性的值。
 @property (nonatomic, assign) BOOL isIndoorBuildingShowing;
 
 ///当前地图自动显示的或通过建筑选择器选中显示的 建筑模型，不一定是距离屏幕中心点最近的模型。室内搜索 功能，需使用此建筑模型的buildingID。
