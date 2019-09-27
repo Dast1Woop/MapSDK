@@ -56,16 +56,16 @@ NS_ASSUME_NONNULL_BEGIN
 ///是否有路径正在显示,可以用于判断是否已规划路径
 @property (nonatomic, assign) BOOL isRoutePathShowing;
 
-/// 已废弃，可通过buildingModelMapShowing.buildingID获取。因为此属性维护需要与buildingModelMapShowing.buildingID同步，容易出错，导致莫名其妙bug
-//@property (nonatomic, copy) NSString* buildingIDMapShowing;
-
 /** 是否可选中模型 */
 @property (nonatomic, assign, getter=isCanSelectFeatureOnMap) BOOL canSelectFeatureOnMap;
 
-///当前地图显示的被选中的建筑模型，不一定是距离屏幕中心点最近的模型
+/// 判断当前屏幕中心区域，是否显示了无遮罩的室内建筑
+@property (nonatomic, assign) BOOL isIndoorBuildingShowing;
+
+///当前地图自动显示的或通过建筑选择器选中显示的 建筑模型，不一定是距离屏幕中心点最近的模型。室内搜索 功能，需使用此建筑模型的buildingID。
 @property(nonatomic, strong) HTMBuildingModel *buildingModelMapShowing;
 
-/// 距离屏幕中心点最近的建筑
+/// 距离屏幕中心点最近的建筑,跟buildingModelMapShowing可能不是同一个建筑。
 @property(nonatomic, strong) HTMBuildingModel *gNearestBuildingModel;
 
 ///当前地图显示的楼层模型，包含楼层id和楼层名

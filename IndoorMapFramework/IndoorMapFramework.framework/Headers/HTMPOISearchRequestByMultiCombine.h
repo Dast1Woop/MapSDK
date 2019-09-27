@@ -43,13 +43,13 @@ NS_ASSUME_NONNULL_BEGIN
  minLng, minLat, maxLng, maxLat */
 @property (nonatomic, copy) NSArray<NSNumber *> *bbox;
 
-///app规则：1搜索室内，0搜索室外，默认值为-1（不限制，室内+室外）
+///app规则：1搜索室内，0搜索室外，默认值为-1（不限制，室内+室外,不支持分页）
 @property (nonatomic, assign) int indoor;
 
-///每页记录数，默认10。url传参。当 indoor = -1 时不支持分页
+///每页记录数，默认50。已通过url传参。当 indoor = -1 时不支持分页
 @property (nonatomic, assign) int pageSize;
 
-///当前页码，默认1。url传参。当 indoor = -1 时不支持分页
+///当前页码，默认1。已通过url传参。当 indoor = -1 时不支持分页
 @property (nonatomic, assign) int pageNum;
 
 ///优先策略：wheelchair无障碍优先（默认），distance距离优先
