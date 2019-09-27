@@ -32,8 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///室内poi类型，室外custom:style类型
 @property(nonatomic, copy) NSString *type;
 
-///菜单类型code。通过字典接口获取
-@property(nonatomic, copy) NSString *typeCode;
+///菜单类型code。通过 根据当前位置获取POI菜单 方法获取
+@property(nonatomic, copy) NSString *menuCode;
 
 ///室内地图id
 @property(nonatomic, copy) NSString *mapId;

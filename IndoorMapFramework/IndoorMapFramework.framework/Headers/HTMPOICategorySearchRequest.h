@@ -12,8 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HTMPOICategorySearchRequest : NSObject
 
-///建筑id
+/// 建筑id，必须
 @property(nonatomic, copy) NSString *buildingID;
+
+/// floorId,非必须
+@property(nonatomic, copy) NSString *floorId;
 
 @end
 
