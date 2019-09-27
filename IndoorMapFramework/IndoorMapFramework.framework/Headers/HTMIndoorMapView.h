@@ -24,6 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HTMIndoorMapView : UIView<MGLMapViewDelegate>
 
+
+///共3种类型：测试版、beta版、正式版
+@property (nonatomic, copy) NSString *sdkType;
+
 ///代理对象
 @property (nonatomic, weak)id <HTMIndoorMapDelegate> delegateCustom;
 
