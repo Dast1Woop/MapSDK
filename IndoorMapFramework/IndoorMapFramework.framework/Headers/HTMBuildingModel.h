@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HTMFloorConfig;
+@class HTMFloorModel;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HTMBuildingModel : NSObject
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign)  int defaultFloorID;
 
 ///楼层信息数组
-@property(nonatomic, copy) NSArray<HTMFloorConfig*> *floorModelsArr;
+@property(nonatomic, copy) NSArray<HTMFloorModel*> *floorModelsArr;
 
 /// 建筑绑定的与当前建筑有水平交叉的建筑id数组。包含当前建筑id。
 @property (nonatomic, copy) NSArray<NSString *> *crossBuildingIDsArr;

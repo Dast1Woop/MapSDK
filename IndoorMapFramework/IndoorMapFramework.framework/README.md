@@ -34,7 +34,6 @@ IndoorMapFramework/IndoorMapFramework/TJNewCode
 abstract_target 'Shows' do
 #4.11.0:模型无法渲染；5.0+，路径图层被盖住
 pod 'Mapbox-iOS-SDK','~>4.10.0'
-pod 'MJExtension','~>3.0.17'
 pod 'AFNetworking','~>3.2.1'
 pod ‘Masonry','~>1.1.0'
 

@@ -58,7 +58,7 @@ visibleFeaturesInTouchedRect:(NSArray *)featuresArr
  @param buildingM 建筑模型
  */
 -(void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView
-         didSelectFloor:(HTMFloorConfig *)floorM
+         didSelectFloor:(HTMFloorModel *)floorM
                building:(HTMBuildingModel *)buildingM;
 
 

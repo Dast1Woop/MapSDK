@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class HTMFloorModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,8 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 类别分类-小类 */
 @property(nonatomic, copy) NSString *subCategory;
 
-/// 此类别存在于 室内建筑中的哪些层。eg：[@"0", @"1"],表示在floorID为0和1的层存在此类别。
-@property (nonatomic, copy) NSArray<NSString *> *floorIds;
+/// 此类别存在于 室内建筑中的哪些层。
+@property (nonatomic, copy) NSArray<HTMFloorModel *> *floorModels;
 
 @end
 

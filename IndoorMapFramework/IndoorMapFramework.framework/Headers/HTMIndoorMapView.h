@@ -14,7 +14,7 @@
 #import <UIKit/UIKit.h>
 #import <Mapbox/Mapbox.h>
 #import <CoreLocation/CoreLocation.h>
-@class HTMFloorConfig;
+@class HTMFloorModel;
 @class HTMRoutePath;
 @class HTMPoi;
 @class HTMBuildingModel;
@@ -72,10 +72,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) HTMBuildingModel *gNearestBuildingModel;
 
 ///当前地图显示的楼层模型，包含楼层id和楼层名
-@property(nonatomic, strong) HTMFloorConfig *floorModelMapShowing;
+@property(nonatomic, strong) HTMFloorModel *floorModelMapShowing;
 
 /// 当前屏幕特定可见区域包含HTMFloorConfig*对象的楼层数组
-@property (nonatomic, copy) NSArray<HTMFloorConfig*> *floorConfigsArr;
+@property (nonatomic, copy) NSArray<HTMFloorModel*> *floorConfigsArr;
 
 /// 当前屏幕特定可见区域包含HTMBuildingModel*对象的 建筑数组,已根据与屏幕中心点距离由近到远排序
 @property (nonatomic, copy) NSArray<HTMBuildingModel*> *buildingModelsArrSorted;
