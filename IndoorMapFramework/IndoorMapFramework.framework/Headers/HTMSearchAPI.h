@@ -26,6 +26,9 @@
 @class HTMSubRegionsRequest;
 @class HTMRegionInfoResponse;
 
+@class HTMMenuSearchRequest;
+@class HTMMenuSearchResponse;
+
 @protocol HTMSearchDelegate;
 
 
@@ -100,6 +103,11 @@ NS_ASSUME_NONNULL_BEGIN
  @param request HTMSubRegionsRequest对象
  */
 - (void)HTMSubRegionsSearch:(HTMSubRegionsRequest *)request;
+
+
+/// 根据当前位置获取POI菜单
+/// @param request HTMMenuSearchRequest对象
+- (void)HTMMenuSearch:(HTMMenuSearchRequest *)request;
 
 @end
 
@@ -189,6 +197,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)onSubRegionsSearchDone:(HTMSubRegionsRequest *)request responseArray:(NSArray<HTMRegionInfoResponse *> *)responseArr;
 
+
+/// 根据当前位置获取POI菜单结果
+/// @param request HTMMenuSearchRequest请求对象
+/// @param response HTMMenuSearchResponse响应对象
+- (void)onMenuSearchDone:(HTMMenuSearchRequest *)request
+                response:(HTMMenuSearchResponse *)response;
 
 @end
 
