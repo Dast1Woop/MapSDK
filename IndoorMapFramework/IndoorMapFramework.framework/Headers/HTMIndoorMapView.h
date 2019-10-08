@@ -84,6 +84,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSMutableArray *gArrM4CalculateAnnotationViews;
 
 
+#pragma mark -  methods
+
+/// 通过themeID改变地图主题。地图init时，会自动设置为默认主题：0000
+/// 0000 默认主题；1001 杭州专用主题
+/// @param themeID 主题ID
+- (void)changeMapWithThemeID:(NSString *)themeID;
+
 /// 在屏幕可视范围内，通过楼层id，建筑id切楼层和建筑
 /// @param floorID 楼层id
 /// @param buildingID 建筑id
