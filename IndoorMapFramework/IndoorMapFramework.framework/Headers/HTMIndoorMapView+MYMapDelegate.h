@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView
 featureOrMapDidSelected:(MGLPolygonFeature * _Nullable)feature
               isFeature:(BOOL)isFeature
-            featureCoor:(CLLocationCoordinate2D)coor DEPRECATED_MSG_ATTRIBUTE("推荐使用 htmMapView: featuresArray:");
+            featureCoor:(CLLocationCoordinate2D)coor DEPRECATED_MSG_ATTRIBUTE("推荐使用 htmMapView:visibleFeaturesInTouchedRect:touchCoor:");
 
 /// 地图点击事件，适用于大地图室内外poi、线路、面模型点击事件
 /// @param mapView HTMMapView对象

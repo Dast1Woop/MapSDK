@@ -86,7 +86,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark -  methods
 
-/// 通过themeID改变地图主题。地图init时，会自动设置为默认主题：0000
+/// 通过themeID改变地图主题。地图init时，会自动设置为默认主题：0000。在地图对象初始化后使用。
+/// @warning 不能在didFinishLoadingStyle方法中使用。因为此方法会重新请求地图样式（Style），进而触发didFinishLoadingStyle方法。
 /// 0000 默认主题；1001 杭州专用主题
 /// @param themeID 主题ID
 - (void)changeMapWithThemeID:(NSString *)themeID;
