@@ -92,10 +92,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param themeID 主题ID
 - (void)changeMapWithThemeID:(NSString *)themeID;
 
-/// 在屏幕可视范围内，通过楼层id，建筑id切楼层和建筑
+
+/// 在屏幕可视中心范围内，通过楼层id，建筑id切楼层和建筑;返回YES，表示切换成功；返回NO，表示参数有误
 /// @param floorID 楼层id
 /// @param buildingID 建筑id
-- (void)selectFloorID:(int)floorID buildingIDInCurrentScreenArea:(NSString *)buildingID;
+- (BOOL)selectFloorID:(int)floorID buildingIDInCurrentScreenArea:(NSString *)buildingID;
+
+
+/// 在屏幕可视中心范围内，通过楼层，建筑id切楼层和建筑；返回YES，表示切换成功；返回NO，表示参数有误
+/// @param floorName 楼层名
+/// @param buildingID 建筑id
+- (BOOL)selectFloorName:(NSString *)floorName buildingIDInCurrentScreenArea:(NSString *)buildingID;
 
 /**
  显示规划的路径

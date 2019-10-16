@@ -71,6 +71,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)getModelWithBuildingID:(NSString *)buildingID
                        inBuildingMsArr:(NSArray<HTMBuildingModel *>*)arr;
 
+/// 根据楼层名获取楼层id。
+/// @warning 返回INT_MIN时，表示本建筑中没有此楼层
+/// @param floorName 楼层名
+- (int)getFloorIDWithFloorName:(NSString *)floorName;
+
+
+///  本建筑是否包含floorID
+/// @param floorID 楼层ID
+- (BOOL)isFloorIDAvailable:(int)floorID;
 @end
 
 NS_ASSUME_NONNULL_END
