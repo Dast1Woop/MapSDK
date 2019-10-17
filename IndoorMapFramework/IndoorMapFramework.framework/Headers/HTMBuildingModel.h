@@ -76,6 +76,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param floorName 楼层名
 - (int)getFloorIDWithFloorName:(NSString *)floorName;
 
+/// 根据楼层id获取楼层名。
+/// @warning 返回nil时，表示本建筑中没有此楼层
+/// @param floorID 楼层id
+- (NSString *)getFloorNameWithFloorID:(int)floorID;
+
 
 ///  本建筑是否包含floorID
 /// @param floorID 楼层ID
