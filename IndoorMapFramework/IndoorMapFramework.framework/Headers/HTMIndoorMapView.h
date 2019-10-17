@@ -44,8 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 当前显示楼层id */
 @property (nonatomic, assign) int floorIDMapShowing;
 
-///当前定位楼层id
-@property (nonatomic, assign) int floorIDLocated;
+///当前定位楼层名。需要更新定位楼层时，更新floorNameLocated属性！
+@property (nonatomic, copy) NSString *floorNameLocated;
 
 ///获取模型时，触摸点作为查询矩形中心时的矩形范围宽度，如不设置，默认为40个点。
 @property (nonatomic, assign) float pickFeatureRectWidth;
@@ -100,6 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// 在屏幕可视中心范围内，通过楼层，建筑id切楼层和建筑；返回YES，表示切换成功；返回NO，表示参数有误
+/// @waring 如果定位楼层有变化，需要更新定位楼层时，更新floorNameLocated属性！
 /// @param floorName 楼层名
 /// @param buildingID 建筑id
 - (BOOL)selectFloorName:(NSString *)floorName buildingIDInCurrentScreenArea:(NSString *)buildingID;
