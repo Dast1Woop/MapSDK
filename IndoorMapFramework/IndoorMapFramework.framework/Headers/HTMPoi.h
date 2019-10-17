@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///poi样式
 @property(nonatomic, copy) NSString *subclass;
 
-/// 坐标模型
+/// 坐标模型，包含了floorId
 @property(nonatomic, strong) HTMGeoCoor *geoCoor;
 
 ///poi类别对象，里面包括type，bigCategory，midCategory，bigCategory属性
@@ -70,6 +70,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///poi类型。室外地图poi专属
 @property(nonatomic, copy) NSString *mapping_key;
+
+///楼层id。室内地图poi专属  v1.01新增。d
+@property(nonatomic, copy) NSString *floorId;
 
 ///楼层名称。室内地图poi专属
 @property(nonatomic, copy) NSString *floorName;

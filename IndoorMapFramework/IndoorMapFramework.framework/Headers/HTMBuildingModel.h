@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 通过建筑id和建筑模型数组，获取建筑id对应的建筑模型
+ 通过建筑id和建筑模型数组，获取建筑id对应的建筑模型。如果buildingID无效，返回nil
  @param buildingID 建筑id
  @param arr 建筑模型数组
  @return 建筑模型
