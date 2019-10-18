@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 纬度
 @property (nonatomic, assign) double lat;
 
-/// 室内地图的楼层id
+/// 室内地图的楼层id。已重写get方法，没赋值时，返回@""
 @property (nonatomic, copy) NSString *floorId;
 
 /// 墨卡托x坐标
