@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 距离屏幕中心点最近的建筑,跟buildingModelMapShowing可能不是同一个建筑。
 @property(nonatomic, strong) HTMBuildingModel *gNearestBuildingModel;
 
-/// 当前屏幕特定可见区域包含HTMFloorConfig*对象的楼层数组
+/// 当前屏幕特定可见区域包含HTMFloorModel*对象的楼层数组
 @property (nonatomic, copy) NSArray<HTMFloorModel*> *floorConfigsArr;
 
 /// 当前屏幕特定可见区域包含HTMBuildingModel*对象的 建筑数组,已根据与屏幕中心点距离由近到远排序
