@@ -50,14 +50,14 @@ NS_ASSUME_NONNULL_BEGIN
 ///获取模型时，触摸点作为查询矩形中心时的矩形范围高度，如不设置，默认为40个点。
 @property (nonatomic, assign) float pickFeatureRectHeight;
 
-///是否隐藏点击地图时的点注释，默认为NO，需要隐藏或自定义时，设置为YES
+///调试专用，是否隐藏点击地图时的点注释，默认为YES。
 @property (nonatomic, assign) BOOL isHidePointAnnotationWhenTapMap;
 
 ///是否有路径正在显示,可以用于判断是否已规划路径
 @property (nonatomic, assign) BOOL isRoutePathShowing;
 
-/** 是否可选中模型 */
-@property (nonatomic, assign, getter=isCanSelectFeatureOnMap) BOOL canSelectFeatureOnMap;
+/** 是否支持地图点击事件，如果为NO,visibleFeaturesInTouchedRect和visibleFeaturesInTouchedRect都不会回调 */
+@property (nonatomic, assign, getter=isCanSelectFeatureOnMap) BOOL isSupportTapOnMap;
 
 /// 判断当前屏幕中心区域，是否显示了无遮罩的室内建筑。kvo对此属性无效。如需监听值是否改变，可以 重写- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated，并再里面获取此属性的值。
 @property (nonatomic, assign) BOOL isIndoorBuildingShowing;
@@ -134,6 +134,12 @@ NS_ASSUME_NONNULL_BEGIN
  @param coor 添加点注释所在的经纬度
  */
 - (void)addOnePointAnnotationToMapViewWithCoor:(CLLocationCoordinate2D)coor;
+
+
+/// 添加一个 点注释 到mapview
+/// @param coor 添加点注释所在的经纬度
+/// @param title 添加点注释的标题。如果注释可以被点击，默认显示此标题
+- (void)addOnePointAnnotationToMapViewWithCoor:(CLLocationCoordinate2D)coor title:(NSString *)title imageUrl:(NSString *)imgUrlStr;
 
 /** 显示盲道 */
 - (void)showBlindRoad;

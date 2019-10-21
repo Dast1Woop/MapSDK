@@ -28,11 +28,14 @@ typedef NS_ENUM(NSInteger,RoutePlanType){
     BY_WALK,
     ///(行车优先) 【暂不支持】
     BY_DRIVE,
-
+    
+    /// (盲道优先)
+    BY_BLIND,
     ///仅盲道通行
     BY_BLIND_ONLY,
-
-    /// 仅轮椅通道通行
+    /// ( 通道优先)
+    BY_WHEELCHAIR,
+    /// (仅轮椅通道通行) 
     BY_WHEELCHAIR_ONLY
 };
 

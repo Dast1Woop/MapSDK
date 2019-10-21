@@ -63,3 +63,6 @@ FOUNDATION_EXPORT const unsigned char IndoorMapFrameworkVersionString[];
 
 #import <IndoorMapFramework/HTMPOICategorySearchRequestByType.h>
 
+#import <IndoorMapFramework/HTMCustomPointAnnotation.h>
+#import <IndoorMapFramework/HTMCustomAnnotationView.h>
+
