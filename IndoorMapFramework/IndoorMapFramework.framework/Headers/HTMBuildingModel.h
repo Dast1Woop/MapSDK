@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *buildingNameTraditional;
 
 /// 建筑英文名
-@property(nonatomic, copy) NSString *buildingNameeEnglish;
+@property(nonatomic, copy) NSString *buildingNameEnglish;
 
 ///经度
 @property(nonatomic, assign) double lng;

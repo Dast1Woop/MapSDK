@@ -10,6 +10,8 @@
  @warning 外界控制器需要指定mapview属性的delegate时，不能直接对delegate赋值，会导致本类中mapbox相关代理方法无法被触发，楼层选择器无法显示等严重问题。必须使用下面类似方法（即：使用HTMIndoorMapView对象的mapView调用用addMultiDelegate方法），保证sdk内部和外部mapbox代理方法都可以被回调：
  
     [self.indoorMapView.mapView addMultiDelegate:self];
+ 
+ 请注意本页中@warning相关内容
  */
 #import <UIKit/UIKit.h>
 #import <Mapbox/Mapbox.h>
@@ -65,6 +67,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///当前地图自动显示的或通过建筑选择器选中显示的 建筑模型，不一定是距离屏幕中心点最近的模型。室内搜索 功能，需使用此建筑模型的buildingID。
 @property(nonatomic, strong) HTMBuildingModel *buildingModelMapShowing;
+
+
+/// 定位大楼模型
+/// @warning 当通过蓝牙等方式定位成功时，需要更新此属性。
+@property(nonatomic, strong) HTMBuildingModel *buildingModelLocated;
 
 /// 距离屏幕中心点最近的建筑,跟buildingModelMapShowing可能不是同一个建筑。
 @property(nonatomic, strong) HTMBuildingModel *gNearestBuildingModel;
