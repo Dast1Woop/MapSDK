@@ -51,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) float pickFeatureRectHeight;
 
 ///调试专用，是否隐藏点击地图时的点注释，默认为YES。
+///当重写相关代理(如- (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id<MGLAnnotation>)annotation)时，默认注释效果可能会失效。
 @property (nonatomic, assign) BOOL isHidePointAnnotationWhenTapMap;
 
 ///是否有路径正在显示,可以用于判断是否已规划路径
