@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// 定位大楼模型
-/// @warning 当通过蓝牙等方式定位成功时，需要更新此属性。
+/// @warning 当通过蓝牙等方式定位成功时，需要更新此建筑属性里面的buildingID和buildingNameDefalut。室外蓝牙定位成功时，相关属性为空。使用时注意。
 @property(nonatomic, strong) HTMBuildingModel *buildingModelLocated;
 
 /// 距离屏幕中心点最近的建筑,跟buildingModelMapShowing可能不是同一个建筑。

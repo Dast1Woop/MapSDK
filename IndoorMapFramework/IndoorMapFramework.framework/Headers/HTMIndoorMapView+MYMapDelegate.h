@@ -38,17 +38,18 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView
 featureOrMapDidSelected:(MGLPolygonFeature * _Nullable)feature
               isFeature:(BOOL)isFeature
-            featureCoor:(CLLocationCoordinate2D)coor DEPRECATED_MSG_ATTRIBUTE("推荐使用 htmMapView:visibleFeaturesInTouchedRect:touchCoor:");
+            featureCoor:(CLLocationCoordinate2D)coor DEPRECATED_MSG_ATTRIBUTE("推荐使用 htmMapView:visibleFeaturesInTouchedRect:touchCoor:featureCoor:");
+
 
 /// 地图点击事件，适用于大地图室内外poi、线路、面模型点击事件
 /// @param mapView HTMMapView对象
-/// @param featuresArr 包含poi、线路、面模型的数组
-/// @param coor 触摸点经纬度，不一定需要使用，poi/模型坐标可通过featuresArr获取，获取不到才可能使用此属性
+/// @param featuresArr  包含poi、线路、面模型的数组。已分组：(低地址)poi(MGLPointFeature)模型数组，线模型(MGLPolylineFeature)数组，面(MGLPolygonFeature)模型数组。eg：3种模型都有时，第0位是MGLPointFeature模型
+/// @param touchCoor 触摸点经纬度
+/// @param featureCoor featuresArr的第0个模型绑定的经纬度，如果为(0,0),内部会把touchCoor赋值给它.
 -(void)htmMapView:(HTMIndoorMapView *)mapView
 visibleFeaturesInTouchedRect:(NSArray *)featuresArr
-        touchCoor:(CLLocationCoordinate2D)coor;
-
-
+        touchCoor:(CLLocationCoordinate2D)touchCoor
+      featureCoor:(CLLocationCoordinate2D)featureCoor;
 
 /**
   建筑/楼层 切换事件
