@@ -62,10 +62,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** 是否支持地图点击事件，如果为NO,visibleFeaturesInTouchedRect和visibleFeaturesInTouchedRect都不会回调 */
 @property (nonatomic, assign, getter=isCanSelectFeatureOnMap) BOOL isSupportTapOnMap;
 
-/// 判断当前屏幕中心区域，是否显示了无遮罩的室内建筑。kvo对此属性无效。如需监听值是否改变，可以 重写- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated，并再里面获取此属性的值。
+/// 判断当前地图可见区，是否显示了无遮罩的室内建筑。kvo对此属性无效。如需监听值是否改变，可以 重写- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated，并在里面获取此属性的值。
 @property (nonatomic, assign) BOOL isIndoorBuildingShowing;
 
-///当前地图自动显示的或通过建筑选择器选中显示的 建筑模型，不一定是距离屏幕中心点最近的模型。室内搜索 功能，需使用此建筑模型的buildingID。
+///当前地图自动显示的或通过建筑选择器选中显示的 建筑模型，不一定是距离地图可见区中心点最近的模型。室内搜索 功能，需使用此建筑模型的buildingID。
 @property(nonatomic, strong) HTMBuildingModel *buildingModelMapShowing;
 
 
@@ -73,13 +73,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// @warning 当通过蓝牙等方式定位成功时，需要更新此建筑属性里面的buildingID和buildingNameDefalut。室外蓝牙定位成功时，相关属性为空。使用时注意。
 @property(nonatomic, strong) HTMBuildingModel *buildingModelLocated;
 
-/// 距离屏幕中心点最近的建筑,跟buildingModelMapShowing可能不是同一个建筑。
+/// 距离地图可见区中心点最近的建筑,跟buildingModelMapShowing可能不是同一个建筑。
 @property(nonatomic, strong) HTMBuildingModel *gNearestBuildingModel;
 
-/// 当前屏幕特定可见区域包含HTMFloorModel*对象的楼层数组
+/// 当前地图可见区域包含HTMFloorModel*对象的楼层数组
 @property (nonatomic, copy) NSArray<HTMFloorModel*> *floorConfigsArr;
 
-/// 当前屏幕特定可见区域包含HTMBuildingModel*对象的 建筑数组,已根据与屏幕中心点距离由近到远排序
+/// 当前地图可见区域包含HTMBuildingModel*对象的 建筑数组,已根据与地图可见区中心点距离由近到远排序
 @property (nonatomic, copy) NSArray<HTMBuildingModel*> *buildingModelsArrSorted;
 
 ///气泡点数组，默认每点击一次地图，就会往地图上打一个点，并往此数组中加入对应对象
@@ -95,14 +95,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)changeMapWithThemeID:(NSString *)themeID;
 
 
-/// 在屏幕可视中心范围内，通过楼层id，建筑id切楼层和建筑;返回YES，表示切换成功；返回NO，表示参数有误
+/// 在地图可视范围内，通过楼层id，建筑id切楼层和建筑;返回YES，表示切换成功；返回NO，表示参数有误
 /// @warning 必须在主线程执行
 /// @param floorID 楼层id
 /// @param buildingID 建筑id
 - (BOOL)selectFloorID:(int)floorID buildingIDInCurrentScreenArea:(NSString *)buildingID;
 
 
-/// 在屏幕可视中心范围内，通过楼层，建筑id切楼层和建筑；返回YES，表示切换成功；返回NO，表示参数有误
+/// 在地图可视范围内，通过楼层，建筑id切楼层和建筑；返回YES，表示切换成功；返回NO，表示参数有误
 /// @waring 如果定位楼层信息有变化，需要先更新floorModelLocated属性，再调用此方法！否则定位点所在楼层无法正确显隐；
 /// @waring 必须在主线程执行
 ///
@@ -220,6 +220,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///键：layerID，值：predicate
 @property (nonatomic, copy) NSDictionary *gDicDefalutPredict4IndoorLayers;
+
+///缓存当前地图可见区所有大楼id对应的上次显示的楼层信息,
+@property (nonatomic, copy, nullable) NSDictionary<NSString *, HTMFloorModel *> *gDic4CacheLastShownFloor;
 
 ///当前交叉建筑区域的建筑按钮是否被点击过。当交叉建筑区发生变化时，此属性会被重置为NO
 @property (nonatomic, assign) BOOL isBtn4BuildingClickedInCrtCrossedArea;
