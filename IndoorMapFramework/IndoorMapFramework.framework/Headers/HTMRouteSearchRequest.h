@@ -48,6 +48,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy) NSString *lang;
 
+
+/** 非必传，路径类型，起点和终点是否加入路径
+默认值是1，值只能是以下之一：
+0 起点加入路径
+1 终点加入路径（默认值）
+2 起点和终点加入路径
+3 起点和终点均不加入路径（只用路网绘制的路径） */
+@property (nonatomic, assign) int pathType;
+
 @end
 
 NS_ASSUME_NONNULL_END
