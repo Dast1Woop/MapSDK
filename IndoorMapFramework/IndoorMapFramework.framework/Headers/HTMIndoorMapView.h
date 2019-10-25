@@ -11,7 +11,17 @@
  
     [self.indoorMapView.mapView addMultiDelegate:self];
  
- 请注意本页中@warning相关内容
+ 如需自动切楼层，需要及时对buildingModelLocated、floorModelLocated赋值。
+ 且实现下面代码方法（本sdk已监听userTrackingMode的变化，当为跟随模式时，会自动切楼层）：
+ - (void)mapViewDidBecomeIdle:(MGLMapView *)mapView{
+     dispatch_async(dispatch_get_main_queue(), ^{
+         static dispatch_once_t onceToken;
+         dispatch_once(&onceToken, ^{
+             [self.indoorMapView.mapView setUserTrackingMode:(MGLUserTrackingModeFollow) animated:NO];
+         });
+     });
+ }
+ 请注意本页中所有 @warning相关内容
  */
 #import <UIKit/UIKit.h>
 #import <Mapbox/Mapbox.h>
@@ -99,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @warning 必须在主线程执行
 /// @param floorID 楼层id
 /// @param buildingID 建筑id
-- (BOOL)selectFloorID:(int)floorID buildingIDInCurrentScreenArea:(NSString *)buildingID;
+- (NSError *)selectFloorID:(int)floorID buildingIDInCurrentScreenArea:(NSString *)buildingID;
 
 
 /// 在地图可视范围内，通过楼层，建筑id切楼层和建筑；返回YES，表示切换成功；返回NO，表示参数有误
@@ -108,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 /// @param floorName 楼层名
 /// @param buildingID 建筑id
-- (BOOL)selectFloorName:(NSString *)floorName buildingIDInCurrentScreenArea:(NSString *)buildingID;
+- (NSError *)selectFloorName:(NSString *)floorName buildingIDInCurrentScreenArea:(NSString *)buildingID;
 
 /**
  显示规划的路径
@@ -212,14 +222,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)resetColorToSeletedFloorPickersLabel;
     
-    
 //start:--------暴露以用于分类中-----------
 
 /// 建筑按钮
 @property(nonatomic, strong) UIButton *gBtn4Building;
 
-///键：layerID，值：predicate
-@property (nonatomic, copy) NSDictionary *gDicDefalutPredict4IndoorLayers;
+///键：layerID，值：predicate。存储室内和室外特殊道路初始predict
+@property (nonatomic, copy) NSDictionary *gDicDefalutPredict4IndoorOrSpecialLayers;
 
 ///缓存当前地图可见区所有大楼id对应的上次显示的楼层信息,
 @property (nonatomic, copy, nullable) NSDictionary<NSString *, HTMFloorModel *> *gDic4CacheLastShownFloor;
