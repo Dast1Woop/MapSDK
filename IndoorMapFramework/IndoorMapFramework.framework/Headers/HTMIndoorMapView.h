@@ -30,6 +30,7 @@
 @class HTMRoutePath;
 @class HTMPoi;
 @class HTMBuildingModel;
+@class HTMRoutePlanNode;
 
 @protocol HTMIndoorMapDelegate;
 NS_ASSUME_NONNULL_BEGIN
@@ -109,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @warning 必须在主线程执行
 /// @param floorID 楼层id
 /// @param buildingID 建筑id
-- (NSError *)selectFloorID:(int)floorID buildingIDInCurrentScreenArea:(NSString *)buildingID;
+- (nullable NSError *)selectFloorID:(int)floorID buildingIDInCurrentScreenArea:(NSString *)buildingID;
 
 
 /// 在地图可视范围内，通过楼层，建筑id切楼层和建筑；返回YES，表示切换成功；返回NO，表示参数有误
@@ -118,14 +119,14 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 /// @param floorName 楼层名
 /// @param buildingID 建筑id
-- (NSError *)selectFloorName:(NSString *)floorName buildingIDInCurrentScreenArea:(NSString *)buildingID;
+- (nullable NSError *)selectFloorName:(NSString *)floorName buildingIDInCurrentScreenArea:(NSString *)buildingID;
 
 /**
  显示规划的路径
  @param routePath HTMRoutePath对象
  @return NSError对象，为nil时代表显示路线成功，否则失败
  */
--(NSError *)showRoutePath:(HTMRoutePath *)routePath;
+-(nullable NSError *)showRoutePath:(HTMRoutePath *)routePath;
 
 
 
@@ -136,8 +137,13 @@ NS_ASSUME_NONNULL_BEGIN
  @param crtCoor 投影点坐标
  @return NSError对象
  */
-- (NSError *)updateRoutePathUserWalkedWithPathNumber:(int)pathNumber
+- (nullable NSError  *)updateRoutePathUserWalkedWithPathNumber:(int)pathNumber
                                         crtCoor:(CLLocationCoordinate2D)crtCoor;
+
+
+/// 根据点数据在备用图层上画线
+/// @param nodesArr 点数据数组
+- (NSError *)updateStandByLineLayerWithRoutePlanNodesArr:(NSArray<HTMRoutePlanNode *> *)nodesArr;
 
 /** 置空routePath数据源 并 隐藏规划路径图层 */
 -(void)clearRoutePath;
@@ -236,8 +242,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///当前交叉建筑区域的建筑按钮是否被点击过。当交叉建筑区发生变化时，此属性会被重置为NO
 @property (nonatomic, assign) BOOL isBtn4BuildingClickedInCrtCrossedArea;
 
-- (void)pmy_addPolylineToStyle:(MGLStyle *)style;
-- (void)pmy_addWalkedPathPolylineToStyle:(MGLStyle *)style;
+- (void)pmy_addPolylineLayerToStyle:(MGLStyle *)style;
+- (void)pmy_addWalkedPathPolylineLayerToStyle:(MGLStyle *)style;
+- (void)pmy_addStandByLayerPolylineToStyle:(MGLStyle *)style;
 
 /**
  给楼层选择器被选中的标签设置颜色等样式
