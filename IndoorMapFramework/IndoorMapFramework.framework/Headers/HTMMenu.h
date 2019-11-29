@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 子菜单
 @property(nonatomic, copy) NSArray<HTMMenu *> *children;
+
+/// 图标地址
+@property(nonatomic, copy) NSString *icon;
 @end
 
 NS_ASSUME_NONNULL_END
