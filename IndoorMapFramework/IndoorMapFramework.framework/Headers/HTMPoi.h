@@ -101,6 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///更新时间
 @property(nonatomic, copy) NSString *updateTime;
 
+//行政区域id,191204 new
+@property(nonatomic, copy) NSString *regionId;
 
 @end
 
