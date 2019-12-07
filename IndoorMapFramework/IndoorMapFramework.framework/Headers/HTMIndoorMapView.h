@@ -143,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 根据点数据在备用图层上画线
 /// @param nodesArr 点数据数组
-- (NSError *)updateStandByLineLayerWithRoutePlanNodesArr:(NSArray<HTMRoutePlanNode *> *)nodesArr;
+- (nullable NSError  * )updateStandByLineLayerWithRoutePlanNodesArr:(NSArray<HTMRoutePlanNode *> *)nodesArr;
 
 /** 置空routePath数据源 并 隐藏规划路径图层 */
 -(void)clearRoutePath;
