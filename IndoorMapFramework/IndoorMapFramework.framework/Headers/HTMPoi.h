@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HTMGeoCoor;
-@class HTMPoiCategory;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,11 +22,24 @@ NS_ASSUME_NONNULL_BEGIN
 ///poi样式
 @property(nonatomic, copy) NSString *subclass;
 
-/// 坐标模型，包含了floorId
-@property(nonatomic, strong) HTMGeoCoor *geoCoor;
+///经度。
+@property (nonatomic, assign) double lng;
 
-///poi类别对象，里面包括type，bigCategory，midCategory，bigCategory属性
-@property(nonatomic, strong) HTMPoiCategory *poiCategory;
+///纬度。
+@property (nonatomic, assign) double lat;
+
+
+/** 地图模型类别。 */
+@property(nonatomic, copy) NSString *type;
+
+/** 类别分类-大类 */
+@property(nonatomic, copy) NSString *bigCategory;
+
+/** 类别分类-中类 */
+@property(nonatomic, copy) NSString *midCategory;
+
+/** 类别分类-小类 */
+@property(nonatomic, copy) NSString *subCategory;
 
 /// POI点简介
 @property(nonatomic, copy) NSString *descriptionCustom;
@@ -71,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///poi类型。室外地图poi专属
 @property(nonatomic, copy) NSString *mapping_key;
 
-///楼层id。室内地图poi专属  v1.01新增。d
+///楼层id。室内地图poi专属  v1.01新增。
 @property(nonatomic, copy) NSString *floorId;
 
 ///楼层名称。室内地图poi专属
