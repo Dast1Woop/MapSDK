@@ -57,6 +57,9 @@ NS_ASSUME_NONNULL_BEGIN
 3 起点和终点均不加入路径（只用路网绘制的路径） */
 @property (nonatomic, assign) int pathType;
 
+/// 非必传    是否终点只规划到门口    当只为true时，路径规划终点将只规划到门口 （目前只支持室内的门）
+@property (nonatomic, assign) BOOL toDoor;
+
 @end
 
 NS_ASSUME_NONNULL_END

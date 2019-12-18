@@ -29,17 +29,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  地图点击事件, point:the CGPoint where the user tapped.
-
+已过期，DEPRECATED_MSG_ATTRIBUTE("推荐使用 htmMapView:visibleFeaturesInTouchedRect:touchCoor:featureCoor:")
  @param indoorMapView HTMIndoorMapView对象
  @param feature 如果isFeature为YES，feature为包含完整信息的地图feature数据；否则，为nil。
  @param isFeature 点击地图获取的是否是有效的feature数据
  @param coor 地图点击点对应的经纬度坐标
+ 
  */
 -(void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView
 featureOrMapDidSelected:(MGLPolygonFeature * _Nullable)feature
               isFeature:(BOOL)isFeature
-            featureCoor:(CLLocationCoordinate2D)coor DEPRECATED_MSG_ATTRIBUTE("推荐使用 htmMapView:visibleFeaturesInTouchedRect:touchCoor:featureCoor:");
-
+            featureCoor:(CLLocationCoordinate2D)coor;
 
 /// 地图点击事件，适用于大地图室内外poi、线路、面模型点击事件
 /// @param mapView HTMMapView对象
