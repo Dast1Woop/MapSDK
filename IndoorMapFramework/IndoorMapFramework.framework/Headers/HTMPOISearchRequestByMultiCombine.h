@@ -61,7 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///0:获取不支持路径规划，1:获取支持路径规划，默认为 -1 不限制
 @property (nonatomic, assign) int accessible;
 
-
+/// 当前所在室内楼层id
+@property(nonatomic, copy) NSString *onFloorId;
 
 @end
 
