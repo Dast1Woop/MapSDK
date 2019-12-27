@@ -24,6 +24,7 @@
 
 @class HTMRegionLocationRequest;
 @class HTMSubRegionsRequest;
+@class HTMRegionInfoRequest;
 @class HTMRegionInfoResponse;
 
 @class HTMMenuSearchRequest;
@@ -104,6 +105,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)HTMSubRegionsSearch:(HTMSubRegionsRequest *)request;
 
+/// 根据区域编号获取区域信息
+/// @param request HTMRegionInfoRequest 对象
+- (void)HTMRegionInfoSearch:(HTMRegionInfoRequest *)request;
 
 /// 根据当前位置获取POI菜单
 /// @param request HTMMenuSearchRequest对象
@@ -188,6 +192,12 @@ NS_ASSUME_NONNULL_BEGIN
  @param responseArr HTMRegionLocationResponse对象组成的数组
  */
 - (void)onRegionLocationSearchDone:(HTMRegionLocationRequest *)request responseArray:(NSArray<HTMRegionInfoResponse *> *)responseArr;
+
+
+/// 根据区域编号获取区域信息 结果
+/// @param request HTMRegionInfoRequest obj
+/// @param response obj
+- (void)onRegionInfoSearchDone:(HTMRegionInfoRequest *)request response:(HTMRegionInfoResponse *)response;
 
 /**
  根据区域id 获取树状区域

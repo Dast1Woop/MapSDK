@@ -32,6 +32,8 @@
 @class HTMBuildingModel;
 @class HTMRoutePlanNode;
 
+@class HTMRegionInfoResponse;
+
 @protocol HTMIndoorMapDelegate;
 NS_ASSUME_NONNULL_BEGIN
 
@@ -96,6 +98,11 @@ NS_ASSUME_NONNULL_BEGIN
 ///气泡点数组，默认每点击一次地图，就会往地图上打一个点，并往此数组中加入对应对象
 @property(nonatomic, strong, nullable) NSMutableArray *gArrM4CalculateAnnotationViews;
 
+//区域边界 线图层
+@property(nonatomic, strong) MGLLineStyleLayer *gLayerForRegionBorder;
+
+//区域内部填充效果 图层
+@property(nonatomic, strong) MGLFillStyleLayer *gLayerForRegionFill;
 
 #pragma mark -  methods
 
@@ -144,6 +151,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 根据点数据在备用图层上画线
 /// @param nodesArr 点数据数组
 - (nullable NSError  * )updateStandByLineLayerWithRoutePlanNodesArr:(NSArray<HTMRoutePlanNode *> *)nodesArr;
+
+/// 显示 区域模型高亮效果 图层
+/// @param regionInfoM 区域模型。geometry和bbox属性必须有值
+- (void)showRegionHightlightedLayers:(HTMRegionInfoResponse *)regionInfoM;
+
+/// 隐藏 区域模型高亮效果 图层
+- (void)hideRegionHightlightedLayers;
 
 /** 置空routePath数据源 并 隐藏规划路径图层 */
 -(void)clearRoutePath;
@@ -227,6 +241,8 @@ NS_ASSUME_NONNULL_BEGIN
  用于外界重置楼层选择器被选中楼层label的样式。当选择器被选中楼层样式错乱时，建议在控制器的viewDidAppear中调用此方法。
  */
 - (void)resetColorToSeletedFloorPickersLabel;
+
+- (MGLMapCamera *)cameraThatFitsRegionInfoResponse:(HTMRegionInfoResponse *)response;
     
 //start:--------暴露以用于分类中-----------
 
@@ -242,9 +258,11 @@ NS_ASSUME_NONNULL_BEGIN
 ///当前交叉建筑区域的建筑按钮是否被点击过。当交叉建筑区发生变化时，此属性会被重置为NO
 @property (nonatomic, assign) BOOL isBtn4BuildingClickedInCrtCrossedArea;
 
-- (void)pmy_addPolylineLayerToStyle:(MGLStyle *)style;
-- (void)pmy_addWalkedPathPolylineLayerToStyle:(MGLStyle *)style;
-- (void)pmy_addStandByLayerPolylineToStyle:(MGLStyle *)style;
+- (void)addPolylineLayerToStyle:(MGLStyle *)style;
+- (void)addWalkedPathPolylineLayerToStyle:(MGLStyle *)style;
+- (void)addStandByLayerPolylineToStyle:(MGLStyle *)style;
+- (void)addBorderLineLayerForRegionToStyle:(MGLStyle *)style;
+- (void)addFillLayerForRegionToStyle:(MGLStyle *)style;
 
 /**
  给楼层选择器被选中的标签设置颜色等样式
