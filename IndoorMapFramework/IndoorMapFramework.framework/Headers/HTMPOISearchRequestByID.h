@@ -46,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 //用户当前所在楼层id;非必须。后台用此参数对所有楼层poi进行距离计算和排序。
 @property(nonatomic, copy) NSString *onFloorId;
 
+//优先策略：wheelchair无障碍优先（默认），distance距离优先;非必须
+@property(nonatomic, copy) NSString *priority;
+
 @end
 
 NS_ASSUME_NONNULL_END

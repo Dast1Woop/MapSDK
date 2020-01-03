@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface HTMPOISearchRequestByMultiCombine : NSObject
 
-/// 包含当前位置经纬度坐标的对象，floorID可传可不传。作为与poi的距离的计算。若没传position，也作为范围搜索位置
+/// 包含当前位置经纬度坐标的对象，floorID可传可不传(在本类中认为是用户定位楼层，对应后台字段“onFloorId”)。作为与poi的距离的计算。若没传position，也作为范围搜索位置
 @property(nonatomic, strong) HTMGeoCoor *crtGeoCoor;
 
 /// 作为范围搜索的坐标，一般用当前地图中心经纬度坐标
@@ -61,8 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///0:获取不支持路径规划，1:获取支持路径规划，默认为 -1 不限制
 @property (nonatomic, assign) int accessible;
 
-/// 当前所在室内楼层id
-@property(nonatomic, copy) NSString *onFloorId;
+/// 室内楼层id,指定时，只返回此楼层poi
+@property(nonatomic, copy) NSString *floorId4Filter;
 
 @end
 
