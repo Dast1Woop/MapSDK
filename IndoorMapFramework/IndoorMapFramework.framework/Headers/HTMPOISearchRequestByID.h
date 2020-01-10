@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///0:获取不支持路径规划，1:获取支持路径规划，默认为 -1 不限制; 非必须
 @property (nonatomic, assign) int accessible;
 
-//指定地图（建筑）楼层id;非必须。本层有数据时，只返回本层poi，否则，返回其他所有楼层poi。
+//指定地图（建筑）楼层id;非必须。
 @property(nonatomic, copy) NSString *floorId;
 
 //当前位置经纬度坐标,用英文逗号分隔。eg："119.5451145111, 30.77849033578";非必须
