@@ -18,8 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 ///  菜单code
 @property(nonatomic, copy) NSString *menuCode;
 
-/// 菜单名
+/// 菜单内容
 @property(nonatomic, copy) NSString *menuName;
+
+// 显示名称
+@property(nonatomic, copy) NSString *text;
 
 /// 父类编号
 @property(nonatomic, copy) NSString *parent;
@@ -32,6 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 图标地址
 @property(nonatomic, copy) NSString *icon;
+
+// 类别页信息
+@property(nonatomic, strong)  HTMMenu *category;
+
+// 首页信息
+@property(nonatomic, strong)  HTMMenu *home;
+
 @end
 
 NS_ASSUME_NONNULL_END
