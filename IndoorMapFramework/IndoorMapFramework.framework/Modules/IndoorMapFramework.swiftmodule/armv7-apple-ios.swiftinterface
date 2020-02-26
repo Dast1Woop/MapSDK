@@ -200,10 +200,10 @@ public enum GeometryType : Swift.String {
   case MultiLineString
   case MultiPolygon
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
-  public init?(rawValue: Swift.String)
 }
 public struct Geometry : Swift.Codable {
   public var type: Swift.String

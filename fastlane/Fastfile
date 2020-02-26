@@ -63,6 +63,9 @@ git_commit(path: ["./IndoorMapFramework.podspec"], message: "podspec版本号更
     tag: target_version,
     message: changelog_from_git_commits(commits_count:2)
   )                              # 设置 tag
+  
+  git_pull # Executes a simple git pull command
+  
   push_to_git_remote                                            # 推送到 git 仓库
 #pod_push(path: "../IndoorMapFramework.podspec")
 
