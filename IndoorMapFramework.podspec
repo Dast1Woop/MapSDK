@@ -39,10 +39,13 @@ Pod::Spec.new do |s|
     # s.public_header_files = 'Pod/Classes/**/*.h'
     s.frameworks = 'UIKit', 'Foundation'
     
+    s.swift_versions = ['4.0', '4.2', '5.0']
     s.dependency 'Mapbox-iOS-SDK','~>5.4.0'
     s.dependency 'AFNetworking','~>3.2.1'
     s.dependency 'Masonry','~>1.1.0'
-#    s.dependency 'Turf', '~> 0.3'
+    
+    #不能注释掉，否则找不到swift相关模块！
+    s.dependency 'Turf', '~> 0.3'
     s.dependency 'YYModel', '~> 1.0.4'
     
     #表示pod库项目依赖自己的framework
