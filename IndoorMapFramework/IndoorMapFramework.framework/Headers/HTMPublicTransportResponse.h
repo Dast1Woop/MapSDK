@@ -251,6 +251,12 @@ wheelchair=no (3级，红色，禁止通行） */
 //线路名称
 @property (nonatomic, copy)   NSString *name;
 
+//线路首站名称
+@property(nonatomic, copy) NSString *startStopName;
+
+//线路尾站名称
+@property(nonatomic, copy) NSString *endStopName;
+
 //线路车次号
 @property (nonatomic, copy)   NSString *trip;
 
