@@ -30,6 +30,9 @@
 @class HTMMenuSearchRequest;
 @class HTMMenuSearchResponse;
 
+@class HTMPublicTransportRequest;
+@class HTMPublicTransportResponse;
+
 @protocol HTMSearchDelegate;
 
 
@@ -112,6 +115,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 根据当前位置获取POI菜单
 /// @param request HTMMenuSearchRequest对象
 - (void)HTMMenuSearch:(HTMMenuSearchRequest *)request;
+
+/// 获取公共交通路径规划信息。
+/// @param request HTMPublicTransportRequest对象
+- (void)HTMPublicTransportSearch:(HTMPublicTransportRequest *)request;
 
 @end
 
@@ -213,6 +220,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param response HTMMenuSearchResponse响应对象
 - (void)onMenuSearchDone:(HTMMenuSearchRequest *)request
                 response:(HTMMenuSearchResponse *)response;
+
+/// 获取公共交通路径规划信息结果
+/// @param request HTMMenuSearchRequest请求对象
+/// @param response HTMMenuSearchResponse响应对象
+- (void)onPublicTransportSearchDone:(HTMPublicTransportRequest *)request
+                           response:(HTMPublicTransportResponse *)response;
 
 @end
 
