@@ -70,3 +70,5 @@ FOUNDATION_EXPORT const unsigned char IndoorMapFrameworkVersionString[];
 #import <IndoorMapFramework/HTMPublicTransportRequest.h>
 #import <IndoorMapFramework/HTMPublicTransportResponse.h>
 
+#import <IndoorMapFramework/HTMSimulateNavigator.h>
+#import <IndoorMapFramework/HTMPOISearchRequestByPoiID.h>

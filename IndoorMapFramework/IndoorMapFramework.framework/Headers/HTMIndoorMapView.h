@@ -31,6 +31,7 @@
 @class HTMPoi;
 @class HTMBuildingModel;
 @class HTMRoutePlanNode;
+@class HTMSimulateNavAnnotation;
 
 @class HTMRegionInfoResponse;
 
@@ -53,8 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) MGLMapView *mapView;
 
-///当前地图显示的楼层模型，包含楼层id和楼层名
-@property(nonatomic, strong) HTMFloorModel *floorModelMapShowing;
+///当前地图显示的楼层模型，包含楼层id和楼层名。当显示的大楼被移出屏幕外时，此属性被置为nil。方便显示路径的逻辑。
+@property(nonatomic, strong, nullable) HTMFloorModel *floorModelMapShowing;
 
 ///当前定位的楼层信息。需要更新定位楼层信息时，更新floorModelLocated属性！
 @property (nonatomic, strong) HTMFloorModel *floorModelLocated;
@@ -75,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 是否支持地图点击事件，如果为NO,visibleFeaturesInTouchedRect和visibleFeaturesInTouchedRect都不会回调 */
 @property (nonatomic, assign, getter=isCanSelectFeatureOnMap) BOOL isSupportTapOnMap;
 
-/// 判断当前地图可见区，是否显示了无遮罩的室内建筑。kvo对此属性无效。如需监听值是否改变，可以 重写- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated，并在里面获取此属性的值。
+/// 判断当前地图可见区，是否显示了无遮罩的室内建筑。kvo对此属性无效。如需监听值是否改变，可以 重写- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated，并在里面获取此属性的值（最好延迟0.1s再获取，此属性关联了floorPickerView显隐，而floorPickerView显隐需要时间刷新）。
 @property (nonatomic, assign) BOOL isIndoorBuildingShowing;
 
 ///当前地图自动显示的或通过建筑选择器选中显示的 建筑模型，不一定是距离地图可见区中心点最近的模型。室内搜索 功能，需使用此建筑模型的buildingID。
@@ -108,6 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 通过themeID改变地图主题。地图init时，会自动设置为默认主题：0000。在地图对象初始化后使用。
 /// @warning 不能在didFinishLoadingStyle方法中使用。因为此方法会重新请求地图样式（Style），进而触发didFinishLoadingStyle方法。
+/// 不能在使用此方法后立刻调用 showBlindRoad或 hideWheelChairRoad，可能导致“Either this layer got invalidated after the style change or -[MGLStyle removeLayer:] has been called with this instance but another style layer instance was added with the same identifer. It is an error to send any message to this layer since it cannot be recovered after removal due to the identifier collision. Use unique identifiers for all layer instances including layers of different types.”错误，需要改变图层时，需要在htmIndoorMapViewDidFinishLoading回调方法中设置。
 /// 0000 默认主题；1001 杭州专用主题
 /// @param themeID 主题ID
 - (void)changeMapWithThemeID:(NSString *)themeID;
@@ -128,12 +130,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param buildingID 建筑id
 - (nullable NSError *)selectFloorName:(NSString *)floorName buildingIDInCurrentScreenArea:(NSString *)buildingID;
 
+
 /**
- 显示规划的路径
- @param routePath HTMRoutePath对象
- @return NSError对象，为nil时代表显示路线成功，否则失败
- */
--(nullable NSError *)showRoutePath:(HTMRoutePath *)routePath;
+显示楼层id对应的路径。可在路径规划成功回到里使用。eg：
+ [self.indoorMapView showRoutePath:lRoutePaths.paths.firstObject floorID:self.indoorMapView.floorModelMapShowing.floorID];
+@param routePath HTMRoutePath对象
+@param floorID 楼层id,需要显示地面层时，此属性传0
+@return NSError对象，为nil时代表显示路线成功，否则失败
+*/
+-(nullable NSError *)showRoutePath:(HTMRoutePath *)routePath floorID:(int)floorID;
 
 
 
@@ -144,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param crtCoor 投影点坐标
  @return NSError对象
  */
-- (nullable NSError  *)updateRoutePathUserWalkedWithPathNumber:(int)pathNumber
+- (nullable NSError  *)updateRoutePathUserWalkedWithPathNumber:(NSUInteger)pathNumber
                                         crtCoor:(CLLocationCoordinate2D)crtCoor;
 
 
@@ -159,8 +164,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 隐藏 区域模型高亮效果 图层
 - (void)hideRegionHightlightedLayers;
 
-/** 置空routePath数据源 并 隐藏规划路径图层 */
+/** 置空routePath数据源 并 隐藏规划路径图层和已走路径灰线图层 */
 -(void)clearRoutePath;
+
+/// 隐藏已走路径灰线图层,重置相关属性
+-(void)clearJustUserOrSimulatedWalkedRoutePath;
 
 ///清空mapview中所有 点注释
 -(void)clearAllPointAnnotations;
@@ -178,6 +186,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param coor 添加点注释所在的经纬度
 /// @param title 添加点注释的标题。如果注释可以被点击，默认显示此标题
 - (void)addOnePointAnnotationToMapViewWithCoor:(CLLocationCoordinate2D)coor title:(NSString *)title imageUrl:(NSString *)imgUrlStr;
+
+
+/// 添加模拟定位点到地图上
+/// @param coor 坐标
+/// @param imageName 图片名
+- (HTMSimulateNavAnnotation *)addSimulateLocateAnnotationToMapViewWithCoor:(CLLocationCoordinate2D)coor
+                                                                 imageName:( NSString *)imageName;
 
 /** 显示盲道 */
 - (void)showBlindRoad;

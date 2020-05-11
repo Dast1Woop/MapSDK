@@ -13,6 +13,7 @@
 @class HTMRouteSearchResponse;
 
 @class HTMPOISearchRequestByID;
+@class HTMPOISearchRequestByPoiID;
 @class HTMPOISearchRequestByLocation;
 @class HTMPOISearchRequestByMultiCombine;
 @class HTMPOISearchResponse;
@@ -73,6 +74,11 @@ NS_ASSUME_NONNULL_BEGIN
  * @param request 查询选项。具体属性字段请参考 `HTMPOISearchRequestByID` 类。
  */
 - (void)HTMPOISearchByID:(HTMPOISearchRequestByID *)request;
+
+
+/// 根据poiID搜索poi信息
+/// @param request HTMPOISearchRequestByPOIID对象
+- (void)HTMPOISearchByPoiID:(HTMPOISearchRequestByPoiID *)request;
 
 /**
  * @brief  根据当前位置获取POI信息
@@ -167,6 +173,12 @@ NS_ASSUME_NONNULL_BEGIN
  * @param response 查询结果。具体属性字段请参考 `HTMPOISearchResponse` 类。
  */
 - (void)onPOISearchDoneByID:(HTMPOISearchRequestByID *)request response:(HTMPOISearchResponse *)response;
+
+
+/// 根据poiID搜索poi信息回调
+/// @param request HTMPOISearchRequestByPoiID对象
+/// @param response HTMPOISearchResponse对象，此时，其poisArr数组属性中只有一个元素
+- (void)onPOISearchDoneByPoiID:(HTMPOISearchRequestByPoiID *)request response:(HTMPOISearchResponse *)response;
 
 /**
  * @brief 根据Location查询POI回调方法

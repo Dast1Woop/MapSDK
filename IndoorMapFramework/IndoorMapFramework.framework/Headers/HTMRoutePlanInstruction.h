@@ -153,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) HTMRoutePlanNode *endNode;
 
 ///路径号码：路径规划成功后，每段路径会被编号，从0开始。
-@property (nonatomic, assign) int pathNumber;
+@property (nonatomic, assign) NSUInteger pathNumber;
 
 @end
 

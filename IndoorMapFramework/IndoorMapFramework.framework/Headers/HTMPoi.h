@@ -106,14 +106,17 @@ NS_ASSUME_NONNULL_BEGIN
 ///地址所在门牌号。室外地图poi专属
 @property(nonatomic, copy) NSString *addrHousenumber;
 
-//POI特殊类型：无返回支持路径规划（可点击），3为不支持路径规划（不可点击）
+///POI特殊类型：无返回支持路径规划（可点击），3为不支持路径规划（不可点击）
 @property (nonatomic, assign) int group;
 
 ///更新时间
 @property(nonatomic, copy) NSString *updateTime;
 
-//行政区域id,191204 new
+///行政区域id,191204 new
 @property(nonatomic, copy) NSString *regionId;
+
+///poi的osm类型，node节点、way区域、relation关系。室外地图poi专属
+@property(nonatomic, copy) NSString *osmType;
 
 @end
 
