@@ -62,6 +62,20 @@ visibleFeaturesInTouchedRect:(NSArray *)featuresArr
          didSelectFloor:(HTMFloorModel *)floorM
                building:(HTMBuildingModel *)buildingM;
 
+/// 对建筑列表的cell 普通样式 设置代理。不实现此代理的效果为白底黑字
+/// @param indoorMapView 地图对象
+/// @param cell cell对象
+- (void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView buildingListCell4ConfigNormalStyle:(UITableViewCell *)cell;
+
+/// 对建筑列表的cell 选中样式(只有正在显示的建筑名有选中效果) 设置代理，不实现此代理的效果为蓝底白字
+/// @param indoorMapView 地图对象
+/// @param cell cell对象
+- (void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView     buildingListCell4ConfigSelectedStyle:(UITableViewCell *)cell;
+
+/// 设置楼层选择器中处于选中状态的的label的样式
+/// @param indoorMapView 地图对象
+/// @param label 处于选中状态的的label
+- (void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView selectedLabel4ConfigStyleInPikerView:(UILabel *)label;
 
 @end
 
