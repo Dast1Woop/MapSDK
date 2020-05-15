@@ -192,7 +192,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param coor 坐标
 /// @param imageName 图片名
 - (HTMSimulateNavAnnotation *)addSimulateLocateAnnotationToMapViewWithCoor:(CLLocationCoordinate2D)coor
-                                                                 imageName:( NSString *)imageName;
+                                                                 imageName:( NSString *)imageName
+                                                               imageBounds:(CGRect)imageBounds;
 
 /** 显示盲道 */
 - (void)showBlindRoad;

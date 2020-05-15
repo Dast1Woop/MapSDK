@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 @class HTMRoutePath;
 @class HTMIndoorMapView;
 @class HTMRoutePlanNode;
@@ -19,29 +20,32 @@ NS_ASSUME_NONNULL_BEGIN
 /// 注意：使用时必须强引用此类的对象！
 @interface HTMSimulateNavigator : NSObject
 
-/// 地图对象
-@property(nonatomic, strong) HTMIndoorMapView *gIndoorMapView;
-
-/// 路径规划成功后，返回的对象
-@property(nonatomic, strong) HTMRoutePath *gRoutePath;
-
-/// 模拟移动速度，单位m/s。注意：速度即使很快，每一段路至少也会模拟行走一次。
-@property (nonatomic, assign) float speed;
-
-///模拟定位点图片名
-@property(nonatomic, copy) NSString *gStr4SimLocateImgName;
-
 @property (nonatomic, weak) id<HTMSimulateNavigatorDelegate> delegateCustom;
 
+/// 初始化对象
+/// @param indoorMapV HTMIndoorMapView对象
+/// @param routePath HTMRoutePath对象，在路径规划成功回调里可获取
+/// @param speed 模拟定位点移动速度，单位m/s。注意：速度即使很快，每一段路至少也会模拟行走一次。
+/// @param simLocateImgName 模拟定位点图片名
+/// @param imageBounds 模拟定位点图片宽高信息。传入CGRectZero时，底层会把图片缩放到30x30
 - (instancetype)initWithIndoorMapView:(HTMIndoorMapView *)indoorMapV
                             routePath:(HTMRoutePath *)routePath
                                 speed:(float)speed
-                     simLocateImgName:(NSString *)simLocateImgName;
+                     simLocateImgName:(NSString *)simLocateImgName
+                          imageBounds:(CGRect)imageBounds;
 
+
+/// 初始化对象
+/// @param indoorMapV HTMIndoorMapView对象
+/// @param routePath HTMRoutePath对象，在路径规划成功回调里可获取
+/// @param speed 模拟定位点移动速度，单位m/s。注意：速度即使很快，每一段路至少也会模拟行走一次。
+/// @param simLocateImgName 模拟定位点图片名
+/// @param imageBounds 模拟定位点图片宽高信息,传入CGRectZero时，底层会把图片缩放到30x30
 + (instancetype)modelWithIndoorMapView:(HTMIndoorMapView *)indoorMapV
                              routePath:(HTMRoutePath *)routePath
                                  speed:(float)speed
-                      simLocateImgName:(NSString *)simLocateImgName;
+                      simLocateImgName:(NSString *)simLocateImgName
+                           imageBounds:(CGRect)imageBounds;
 
 
 /// 开始模拟导航效果。上面属性必须都有值。
