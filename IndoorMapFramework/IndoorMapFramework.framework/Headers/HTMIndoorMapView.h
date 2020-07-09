@@ -12,9 +12,10 @@
  <key>MGLMapboxMetricsEnabledSettingShownInApp</key>
  <true/>
  
- 外界控制器需要指定mapview属性的delegate时，不能直接对delegate赋值，会导致本类中mapbox相关代理方法无法被触发，楼层选择器无法显示等严重问题。必须使用下面类似方法（即：使用HTMIndoorMapView对象的mapView调用用addMultiDelegate方法），保证sdk内部和外部mapbox代理方法都可以被回调：
+ 外界控制器需要指定mapview属性的delegate时，不能直接对delegate赋值，会导致本类中mapbox相关代理方法无法被触发，楼层选择器无法显示等严重问题。必须使用下面类似方法，保证sdk内部和外部mapbox代理方法都可以被回调：
  
     [self.indoorMapView.mapView addMultiDelegate:self];
+    self.indoorMapView.mapView.delegate = (id)self.indoorMapView.mapView.multiDelegate;
  
  如需自动切楼层，需要及时对buildingModelLocated、floorModelLocated赋值。
  且实现下面代码方法（本sdk已监听userTrackingMode的变化，当为跟随模式时，会自动切楼层）：
