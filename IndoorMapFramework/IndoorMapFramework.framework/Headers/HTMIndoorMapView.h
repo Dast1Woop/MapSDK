@@ -12,10 +12,8 @@
  <key>MGLMapboxMetricsEnabledSettingShownInApp</key>
  <true/>
  
- 外界控制器需要指定mapview属性的delegate时，不能直接对delegate赋值，会导致本类中mapbox相关代理方法无法被触发，楼层选择器无法显示等严重问题。必须使用下面类似方法，保证sdk内部和外部mapbox代理方法都可以被回调：
- 
-    [self.indoorMapView.mapView addMultiDelegate:self];
-    self.indoorMapView.mapView.delegate = (id)self.indoorMapView.mapView.multiDelegate;
+ 外界控制器需要指定mapview属性的delegate时，不能直接对delegate赋值，会导致本类中mapbox相关代理方法无法被触发，楼层选择器无法显示等严重问题。必须使用下面方法，保证sdk内部和外部mapbox代理方法都可以被回调：
+    [self.indoorMapView setMGLMapViewDelegate:self];
  
  如需自动切楼层，需要及时对buildingModelLocated、floorModelLocated赋值。
  且实现下面代码方法（本sdk已监听userTrackingMode的变化，当为跟随模式时，会自动切楼层）：
@@ -112,6 +110,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) MGLFillStyleLayer *gLayerForRegionFill;
 
 #pragma mark -  methods
+
+
+/// 如果外界需要设置MGLMapView *mapView的代理，必须使用此方法设置
+/// @param vc 代理对象
+- (void)setMGLMapViewDelegate:(id)vc;
 
 /// 通过themeID改变地图主题。地图init时，会自动设置为默认主题：0000。在地图对象初始化后使用。
 /// @warning 不能在didFinishLoadingStyle方法中使用。因为此方法会重新请求地图样式（Style），进而触发didFinishLoadingStyle方法。
