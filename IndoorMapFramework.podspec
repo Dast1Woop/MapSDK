@@ -52,7 +52,7 @@ Pod::Spec.new do |s|
     s.vendored_frameworks = 'IndoorMapFramework/*.{framework}'
     #s.resource = 'HTMapBundle.bundle'#会报错
     s.resource_bundles = {
-        'HTMapBundle' => ['IndoorMapFramework/HTMapBundle/*.png']
+        'HTMapBundle' => ['IndoorMapFramework/HTMapBundle/*.xcassets']
     }
     s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 end

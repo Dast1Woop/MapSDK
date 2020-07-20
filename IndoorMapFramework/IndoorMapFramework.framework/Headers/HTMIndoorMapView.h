@@ -38,6 +38,7 @@
 @class HTMSimulateNavAnnotation;
 
 @class HTMRegionInfoResponse;
+@class HTMCustomPointAnnotation;
 
 @protocol HTMIndoorMapDelegate;
 NS_ASSUME_NONNULL_BEGIN
@@ -100,8 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 当前地图可见区域包含HTMBuildingModel*对象的 建筑数组,已根据与地图可见区中心点距离由近到远排序
 @property (nonatomic, copy) NSArray<HTMBuildingModel*> *buildingModelsArrSorted;
 
-///气泡点数组，默认每点击一次地图，就会往地图上打一个点，并往此数组中加入对应对象
-@property(nonatomic, strong, nullable) NSMutableArray *gArrM4CalculateAnnotationViews;
+///气泡点数组，每调用一次addOnePointAnnotationToMapViewWithCoor或clearAllPointAnnotations方法，就会往地图上打一个点，并往此数组中加入MGLPointAnnotation或子类对象。清除请用clearAllPointAnnotations方法
+@property(nonatomic, strong, nullable) NSMutableArray<MGLPointAnnotation *> *gArrM4CalculateAnnotationViews;
 
 //区域边界 线图层
 @property(nonatomic, strong) MGLLineStyleLayer *gLayerForRegionBorder;
