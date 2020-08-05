@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
     
     s.swift_versions = ['4.0', '4.2', '5.0']
     s.dependency 'Mapbox-iOS-SDK','~>5.4.0'
-    s.dependency 'AFNetworking','~>3.2.1'
+    s.dependency 'AFNetworking','~>4.0.1'
     s.dependency 'Masonry','~>1.1.0'
     
     #不能注释掉，否则找不到swift相关模块！
