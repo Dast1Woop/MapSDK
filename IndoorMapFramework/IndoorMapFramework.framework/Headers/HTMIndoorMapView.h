@@ -125,14 +125,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)changeMapWithThemeID:(NSString *)themeID;
 
 
-/// 在地图可视范围内，通过楼层id，建筑id切楼层和建筑;返回YES，表示切换成功；返回NO，表示参数有误
+/// 在地图可视范围内，通过楼层id，建筑id切楼层和建筑;返回nil，表示切换成功；返回NSError *，表示参数有误
 /// @warning 必须在主线程执行
 /// @param floorID 楼层id
 /// @param buildingID 建筑id
 - (nullable NSError *)selectFloorID:(int)floorID buildingIDInCurrentScreenArea:(NSString *)buildingID;
 
 
-/// 在地图可视范围内，通过楼层，建筑id切楼层和建筑；返回YES，表示切换成功；返回NO，表示参数有误
+/// 在地图可视范围内，通过楼层，建筑id切楼层和建筑；返回nil，表示切换成功；返回NSError *对象，表示参数有误
 /// @waring 如果定位楼层信息有变化，需要先更新floorModelLocated属性，再调用此方法！否则定位点所在楼层无法正确显隐；
 /// @waring 必须在主线程执行
 ///

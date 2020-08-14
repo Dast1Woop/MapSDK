@@ -52,7 +52,7 @@ visibleFeaturesInTouchedRect:(NSArray *)featuresArr
       featureCoor:(CLLocationCoordinate2D)featureCoor;
 
 /**
-  建筑/楼层 切换事件
+  建筑/楼层 切换事件。已切到主线程。
 
  @param indoorMapView HTMIndoorMapView对象
  @param floorM 楼层模型
