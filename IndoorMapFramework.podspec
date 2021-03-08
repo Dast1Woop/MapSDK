@@ -55,5 +55,9 @@ Pod::Spec.new do |s|
     s.resource_bundles = {
         'HTMapBundle' => ['IndoorMapFramework/HTMapBundle/*.xcassets']
     }
-    s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
+    s.pod_target_xcconfig = {
+        'OTHER_LDFLAGS' => '-lObjC',
+        'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    }
+    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
