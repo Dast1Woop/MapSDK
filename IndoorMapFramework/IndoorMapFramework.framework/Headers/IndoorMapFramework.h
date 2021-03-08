@@ -73,3 +73,7 @@ FOUNDATION_EXPORT const unsigned char IndoorMapFrameworkVersionString[];
 #import <IndoorMapFramework/HTMSimulateNavigator.h>
 #import <IndoorMapFramework/HTMPOISearchRequestByPoiID.h>
 #import <IndoorMapFramework/HTMPolyline.h>
+
+
+#import <IndoorMapFramework/HTMAutoVisibilityAnnotation.h>
+#import <IndoorMapFramework/HTMAutoVisibilityAnnotationController.h>

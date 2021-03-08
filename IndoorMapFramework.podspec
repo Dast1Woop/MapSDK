@@ -47,6 +47,7 @@ Pod::Spec.new do |s|
     #不能注释掉，否则找不到swift相关模块！
     s.dependency 'Turf', '~> 0.3'
     s.dependency 'YYModel', '~> 1.0.4'
+    s.dependency 'MapboxAnnotationExtension', '~> 0.0.1-beta.1'
     
     #表示pod库项目依赖自己的framework
     s.vendored_frameworks = 'IndoorMapFramework/*.{framework}'

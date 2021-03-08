@@ -7,6 +7,8 @@
 //
 
 #import <IndoorMapFramework/IndoorMapFramework.h>
+@class HTMAutoVisibilityAnnotation;
+@class MGLAnnotationController;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface HTMIndoorMapView (MYMapDelegate)
@@ -23,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
  @param indoorMapView 包含MGLMapView *mapView属性的HTMIndoorMapView类型的indoorMapView
  **/
 - (void)htmIndoorMapViewDidFinishLoading:(HTMIndoorMapView *)indoorMapView;
+
+/// 注册切换楼层时需要自动显隐的大头针信息。key 为图片名，value 为对应 UIImage* 对象。无需此功能时，返回 @{}
+- (NSDictionary<NSString *,UIImage *> *)htmMapViewRegisterAnnoInfoOfAutoVisibilityWhenChangeFloor;
 
 @optional
 
@@ -76,6 +81,22 @@ visibleFeaturesInTouchedRect:(NSArray *)featuresArr
 /// @param indoorMapView 地图对象
 /// @param label 处于选中状态的的label
 - (void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView selectedLabel4ConfigStyleInPikerView:(UILabel *)label;
+
+/// 当用户点击选中 自动显隐功能的大头针 时回调
+/// @param indoorMapView 地图对象
+/// @param annotationController 大头针控制器
+/// @param annotation 大头针对象（HTMAutoVisibilityAnnotation 类或其子类）
+- (void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView
+    annotationController:(HTMAutoVisibilityAnnotationController *)annotationController
+ didSelectStyleAnnotation:(HTMAutoVisibilityAnnotation *)annotation;
+
+/// 当用户 点击选中 另外一个自动显隐功能的大头针 或 拖动地图时回调
+/// @param indoorMapView 地图对象
+/// @param annotationController 大头针控制器
+/// @param annotation 大头针对象（HTMAutoVisibilityAnnotation 类或其子类）
+- (void)htmIndoorMapView:(HTMIndoorMapView *)indoorMapView
+    annotationController:(HTMAutoVisibilityAnnotationController *)annotationController
+didDeselectStyleAnnotation:(HTMAutoVisibilityAnnotation*)annotation;
 
 @end
 

@@ -7,7 +7,6 @@
 //
 
 #import <Mapbox/Mapbox.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HTMCustomAnnotationView : MGLAnnotationView

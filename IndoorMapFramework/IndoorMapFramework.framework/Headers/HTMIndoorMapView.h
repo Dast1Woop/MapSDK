@@ -30,6 +30,7 @@
 #import <UIKit/UIKit.h>
 #import <Mapbox/Mapbox.h>
 #import <CoreLocation/CoreLocation.h>
+
 @class HTMFloorModel;
 @class HTMRoutePath;
 @class HTMPoi;
@@ -39,11 +40,14 @@
 
 @class HTMRegionInfoResponse;
 @class HTMCustomPointAnnotation;
+#import "HTMAutoVisibilityAnnotationController.h"
 
 @protocol HTMIndoorMapDelegate;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTMIndoorMapView : UIView<MGLMapViewDelegate>
+@interface HTMIndoorMapView : UIView<MGLMapViewDelegate
+,HTMAutoVisibilityAnnotationControllerDelegate
+>
 
 /// 共3种类型：测试版、beta版、正式版
 @property(nonatomic, copy) NSString *sdkType;
@@ -71,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///获取模型时，触摸点作为查询矩形中心时的矩形范围高度，如不设置，默认为40个点。
 @property (nonatomic, assign) float pickFeatureRectHeight;
 
-///调试专用，是否隐藏点击地图时的点注释，默认为YES。
+///调试专用，是否隐藏点击地图时的大头针，默认为YES。
 ///当重写相关代理(如- (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id<MGLAnnotation>)annotation)时，默认注释效果可能会失效。
 @property (nonatomic, assign) BOOL isHidePointAnnotationWhenTapMap;
 
@@ -110,6 +114,9 @@ NS_ASSUME_NONNULL_BEGIN
 //区域内部填充效果 图层
 @property(nonatomic, strong) MGLFillStyleLayer *gLayerForRegionFill;
 
+///自动显隐（切换楼层时）大头针控制器，注意：1.添加时创建 HTMAutoVisibilityAnnotation* 对象或其子类对象，并指定其 floorId 时，在自动或手动切楼层时才有自动显隐效果 2.增删时，手动调用 showAnnotationsOfCurrentShownFloorImmediately 方法，才会只显示与当前显示楼层相同楼层的大头针
+@property (nonatomic,strong) HTMAutoVisibilityAnnotationController *annotationAutoVisibiliyCtrl;
+
 #pragma mark -  methods
 
 
@@ -120,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 通过themeID改变地图主题。地图init时，会自动设置为默认主题：0000。在地图对象初始化后使用。
 /// @warning 不能在didFinishLoadingStyle方法中使用。因为此方法会重新请求地图样式（Style），进而触发didFinishLoadingStyle方法。
 /// 不能在使用此方法后立刻调用 showBlindRoad或 hideWheelChairRoad，可能导致“Either this layer got invalidated after the style change or -[MGLStyle removeLayer:] has been called with this instance but another style layer instance was added with the same identifer. It is an error to send any message to this layer since it cannot be recovered after removal due to the identifier collision. Use unique identifiers for all layer instances including layers of different types.”错误，需要改变图层时，需要在htmIndoorMapViewDidFinishLoading回调方法中设置。
-/// 0000 默认主题；1001 杭州专用主题
+/// @"0000" 轮椅版本主题；@"0001" 视障版本主题
 /// @param themeID 主题ID
 - (void)changeMapWithThemeID:(NSString *)themeID;
 
@@ -180,21 +187,21 @@ NS_ASSUME_NONNULL_BEGIN
 /// 隐藏已走路径灰线图层,重置相关属性
 -(void)clearJustUserOrSimulatedWalkedRoutePath;
 
-///清空mapview中所有 点注释
+///清空mapview中所有 大头针（仅限通过addOnePointAnnotationToMapViewWithCoor添加的大头针，MGLSymbolAnnotationController相关的通过其对象自己管理）
 -(void)clearAllPointAnnotations;
 
 
 /**
- 添加一个 点注释 到mapview
+ 添加一个 大头针 到mapview
 
- @param coor 添加点注释所在的经纬度
+ @param coor 添加大头针所在的经纬度
  */
 - (void)addOnePointAnnotationToMapViewWithCoor:(CLLocationCoordinate2D)coor;
 
 
-/// 添加一个 点注释 到mapview
-/// @param coor 添加点注释所在的经纬度
-/// @param title 添加点注释的标题。如果注释可以被点击，默认显示此标题
+/// 添加一个 大头针 到mapview
+/// @param coor 添加大头针所在的经纬度
+/// @param title 添加大头针的标题。如果注释可以被点击，默认显示此标题
 - (void)addOnePointAnnotationToMapViewWithCoor:(CLLocationCoordinate2D)coor title:(NSString *)title imageUrl:(NSString *)imgUrlStr;
 
 
@@ -269,7 +276,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)resetColorToSeletedFloorPickersLabel;
 
 - (MGLMapCamera *)cameraThatFitsRegionInfoResponse:(HTMRegionInfoResponse *)response;
+
+/// 立刻显示与当前显示楼层相同楼层的大头针（效果仅限通过 annotationAutoVisibiliyCtrl 属性管理的 HTMAutoVisibilityAnnotation * 类型的大头针）。注意：自动或手动切换楼层时，会自动调用此方法。
+- (void)showAnnotationsOfCurrentShownFloorImmediately;
     
+/// 显示或隐藏图层
+/// @param layerID 图层 id，定义详见 http://jira.huatugz.com:8139/pages/viewpage.action?pageId=21365649
+/// @param isShow 是否显示
+/// @return 是否查到 layerID 对应图层
+- (BOOL)showOrHideLayerWithLayerID:(NSString *)layerID
+                            isShow:(BOOL)isShow;
+
+//MARK: 以下暴露仅以为方便用于分类中
 //start:--------暴露以用于分类中-----------
 
 /// 建筑按钮
