@@ -60,6 +60,36 @@ NS_ASSUME_NONNULL_BEGIN
 /// 非必传    是否终点只规划到门口    当只为true时，路径规划终点将只规划到门口 （目前只支持室内的门）
 @property (nonatomic, assign) BOOL toDoor;
 
+//MARK: 终点只规划到（室外）建筑出入口 相关的3个字段toEntrance、osmIdType、toOsmId
+/**
+ 非必传，如果传，只能传 @0 或 @1 ；
+ toEntrance、 osmIdType、toOsmId 同时传递才会尝试“终点只规划到（室外）建筑出入口”；
+ 
+ 接口文档说明：
+ 是否终点只规划到（室外）建筑出入口；
+ 当只为 true 时，路径规划终点将只规划到建筑门口 （目前只支持室外的建筑）；
+ */
+@property (nonatomic,strong,nullable) NSNumber *toEntrance;
+
+/**
+ 非必传，如果传，只能传 @0 或 @1 ；
+ toEntrance、 osmIdType、toOsmId 同时传递才会尝试“终点只规划到（室外）建筑出入口”；
+ 
+ 接口文档说明：
+ 1.瓦片获取到的id为非原始id，osmIdType值为0
+ 2.从其它接口（如搜索）获取的osm id，osmIdType值为1
+ */
+@property (nonatomic,strong,nullable) NSNumber *osmIdType;
+
+/**
+ 非必传，toEntrance、 osmIdType、toOsmId 同时传递才会尝试“终点只规划到（室外）建筑出入口”；
+ 值为@"0"时（搜索结果中室内 poi 的 osmId 可能为0），无需赋值，即使赋值，也不会在请求中传递（如果传递，后台规划路线必定失败）。
+ 
+ 接口文档说明：
+ 终点室外poi的osm id
+ */
+@property (nonatomic,copy,nullable) NSString *toOsmId;
+
 @end
 
 NS_ASSUME_NONNULL_END
