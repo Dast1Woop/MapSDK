@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///代理对象
 @property (nonatomic, weak)id <HTMIndoorMapDelegate> delegateCustom;
 
-/** 楼层切换控件*/
+/** 楼层切换控件，需要更改它的位置时，必须重写它的约束(顶部约束距离不能小于140)，不能用frame方法更改*/
 @property (nonatomic, strong) UIPickerView *floorPickerView;
 
 /**
@@ -290,7 +290,7 @@ NS_ASSUME_NONNULL_BEGIN
 //MARK: 以下暴露仅以为方便用于分类中
 //start:--------暴露以用于分类中-----------
 
-/// 建筑按钮
+/// 建筑按钮，它的位置相对于楼层选择器的位置是固定的。想更改位置时，重写floorPickerView的约束即可。
 @property(nonatomic, strong) UIButton *gBtn4Building;
 
 ///键：layerID，值：predicate。存储室内和室外特殊道路初始predict
