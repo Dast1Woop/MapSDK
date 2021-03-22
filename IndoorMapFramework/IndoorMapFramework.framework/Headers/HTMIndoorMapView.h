@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 通过themeID改变地图主题。地图init时，会自动设置为默认主题：0000。在地图对象初始化后使用。
 /// @warning 不能在didFinishLoadingStyle方法中使用。因为此方法会重新请求地图样式（Style），进而触发didFinishLoadingStyle方法。
 /// 不能在使用此方法后立刻调用 showBlindRoad或 hideWheelChairRoad，可能导致“Either this layer got invalidated after the style change or -[MGLStyle removeLayer:] has been called with this instance but another style layer instance was added with the same identifer. It is an error to send any message to this layer since it cannot be recovered after removal due to the identifier collision. Use unique identifiers for all layer instances including layers of different types.”错误，需要改变图层时，需要在htmIndoorMapViewDidFinishLoading回调方法中设置。
-/// @"0000" 轮椅版本主题；@"0001" 视障版本主题
+/// @"0000" 轮椅版本主题；视障版本主题，可能有变，详见文档库
 /// @param themeID 主题ID
 - (void)changeMapWithThemeID:(NSString *)themeID;
 
