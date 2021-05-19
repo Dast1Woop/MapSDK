@@ -90,6 +90,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,copy,nullable) NSString *toOsmId;
 
+/// app版本号, 非必传
+@property (nonatomic,copy) NSString *appVersion;
+
+/// @"ios"，只读
+@property (nonatomic,copy,readonly) NSString *device;
+
+/// sdk版本号，只读
+@property (nonatomic,copy,readonly) NSString *sdkVersion;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -77,3 +77,5 @@ FOUNDATION_EXPORT const unsigned char IndoorMapFrameworkVersionString[];
 
 #import <IndoorMapFramework/HTMAutoVisibilityAnnotation.h>
 #import <IndoorMapFramework/HTMAutoVisibilityAnnotationController.h>
+#import <IndoorMapFramework/HTMVersion.h>
+
