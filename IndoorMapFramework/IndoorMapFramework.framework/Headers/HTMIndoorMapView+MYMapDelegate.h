@@ -11,7 +11,7 @@
 @class MGLAnnotationController;
 
 NS_ASSUME_NONNULL_BEGIN
-@interface HTMIndoorMapView (MYMapDelegate)
+@interface HTMIndoorMapView (MYMapDelegate)<UIGestureRecognizerDelegate>
 
 @end
 

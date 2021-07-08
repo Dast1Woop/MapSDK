@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for IndoorMapFramework.
-FOUNDATION_EXPORT double IndoorMapFrameworkVersionNumber;
-
-//! Project version string for IndoorMapFramework.
-FOUNDATION_EXPORT const unsigned char IndoorMapFrameworkVersionString[];
-
 // In this header, you should import all the public headers of your framework using statements like #import <IndoorMapFramework/PublicHeader.h>
 
 #import <IndoorMapFramework/HTMIndoorMapView.h>
