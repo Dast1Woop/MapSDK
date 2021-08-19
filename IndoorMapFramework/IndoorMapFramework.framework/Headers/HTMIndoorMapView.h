@@ -313,7 +313,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param lLbl 标签
  */
-- (void)setColorAndSoOn2FloorPikerLbl:(UILabel *)lLbl;
+- (void)setStyle2FloorPikerLbl:(UILabel *)lLbl;
 //end:--------暴露以用于分类中-----------
 
 @end

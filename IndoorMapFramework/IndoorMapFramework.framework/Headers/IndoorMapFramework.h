@@ -28,7 +28,7 @@
 #import <IndoorMapFramework/HTMRouteSearchResponse.h>
 
 #import <IndoorMapFramework/HTMGeoCoor.h>
-#import <IndoorMapFramework/HTMapCoorTransfor.h>
+#import <IndoorMapFramework/HTMCoorTransform4Mercator.h>
 
 #import <IndoorMapFramework/HTMFloorModel.h>
 #import <IndoorMapFramework/HTMEnumDefines.h>
