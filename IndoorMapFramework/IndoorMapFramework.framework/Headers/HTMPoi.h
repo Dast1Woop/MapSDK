@@ -118,6 +118,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///poi的osm类型，node节点、way区域、relation关系。室外地图poi专属
 @property(nonatomic, copy) NSString *osmType;
 
+/// poi包含的子设施
+@property (nonatomic, strong) NSArray *subs;
+
 @end
 
 NS_ASSUME_NONNULL_END

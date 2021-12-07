@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) CLLocationCoordinate2D coor2D;
 
 /** 非必传，不传时默认值为4。
- 地区级别：1国家，2省，3市，4区。级别为x时，搜索结果中就会有x个HTMRegionLocationResponse对象，排序按范围从大到小。
+ 地区级别：1国家，2省，3市，4区。级别为x时，搜索结果中就会有x个HTMRegionInfoResponse对象，排序按范围从大到小。
  eg1：level = 4时， 搜索结果回调数组:[国家, 省, 市, 区]。
  eg2: level = 3时，搜索结果回调数组:[国家, 省, 市]。拿数组中最后一个对象就能获取到市的信息。
  */

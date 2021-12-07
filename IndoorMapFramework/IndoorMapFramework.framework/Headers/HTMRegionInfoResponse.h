@@ -1,5 +1,5 @@
 //
-//  HTMRegionLocationResponse.h
+//  HTMRegionInfoResponse.h
 //  IndoorMapFramework
 //
 //  Created by LongMa on 2019/9/9.

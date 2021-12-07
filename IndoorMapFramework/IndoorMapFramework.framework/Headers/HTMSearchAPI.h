@@ -95,6 +95,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)HTMPOISearchByMultiCombine:(HTMPOISearchRequestByMultiCombine *)request;
 
 /**
+ 根据多种组合条件 获取POI信息增强版
+
+ @param request HTMPOISearchRequestByMultiCombine对象
+ */
+- (void)HTMPOINewSearchByMultiCombine:(HTMPOISearchRequestByMultiCombine *)request;
+
+/**
  * @brief 路线查询接口
  * @param request 查询选项。具体属性字段请参考 `HTMRouteSearchRequest` 类。
  */
@@ -208,7 +215,7 @@ NS_ASSUME_NONNULL_BEGIN
  根据当前GPS获取所在区域列表 结果
 
  @param request HTMRegionLocationRequest 请求对象
- @param responseArr HTMRegionLocationResponse对象组成的数组
+ @param responseArr HTMRegionInfoResponse对象组成的数组
  */
 - (void)onRegionLocationSearchDone:(HTMRegionLocationRequest *)request responseArray:(NSArray<HTMRegionInfoResponse *> *)responseArr;
 
@@ -222,7 +229,7 @@ NS_ASSUME_NONNULL_BEGIN
  根据区域id 获取树状区域
  
  @param request HTMRegionLocationRequest 请求对象
- @param responseArr HTMRegionLocationResponse对象组成的数组
+ @param responseArr HTMRegionInfoResponse对象组成的数组
  */
 - (void)onSubRegionsSearchDone:(HTMSubRegionsRequest *)request responseArray:(NSArray<HTMRegionInfoResponse *> *)responseArr;
 
