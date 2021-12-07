@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'IndoorMapFramework'
-    s.version  	       = '2.10.2'
+    s.version  	       = '2.11.0'
     s.summary          = '地图SDK'
     
     # This description is used to generate tags and improve search results.
