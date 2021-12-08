@@ -73,3 +73,5 @@
 #import <IndoorMapFramework/HTMAutoVisibilityAnnotationController.h>
 #import <IndoorMapFramework/HTMVersion.h>
 
+#import <IndoorMapFramework/HTMSubFacility.h>
+

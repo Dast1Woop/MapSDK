@@ -1,11 +1,10 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
 // swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name IndoorMapFramework
 import CoreLocation
 import Foundation
 @_exported import IndoorMapFramework
 import Swift
-import _Concurrency
 public typealias LocationRadians = Swift.Double
 public typealias RadianDistance = Swift.Double
 public typealias RadianDirection = Swift.Double
@@ -19,9 +18,9 @@ public struct RadianCoordinate2D {
 public typealias Polyline = IndoorMapFramework.LineString
 public struct LineString : Swift.Codable, Swift.Equatable {
   public var coordinates: [CoreLocation.CLLocationCoordinate2D]
-  public static func == (a: IndoorMapFramework.LineString, b: IndoorMapFramework.LineString) -> Swift.Bool
-  public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: IndoorMapFramework.LineString, b: IndoorMapFramework.LineString) -> Swift.Bool
 }
 public struct LineStringFeature : IndoorMapFramework.GeoJSONObject {
   public var type: IndoorMapFramework.FeatureType
@@ -32,7 +31,7 @@ public struct LineStringFeature : IndoorMapFramework.GeoJSONObject {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-extension IndoorMapFramework.LineString {
+extension LineString {
   public func trimmed(from coordinate: CoreLocation.CLLocationCoordinate2D, distance: CoreLocation.CLLocationDistance) -> IndoorMapFramework.LineString
   public struct IndexedCoordinate {
     public let coordinate: Swift.Array<CoreLocation.CLLocationCoordinate2D>.Element
@@ -49,9 +48,9 @@ extension IndoorMapFramework.LineString {
 public struct MultiPoint : Swift.Codable, Swift.Equatable {
   public var coordinates: [CoreLocation.CLLocationCoordinate2D]
   public init(_ coordinates: [CoreLocation.CLLocationCoordinate2D])
-  public static func == (a: IndoorMapFramework.MultiPoint, b: IndoorMapFramework.MultiPoint) -> Swift.Bool
-  public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: IndoorMapFramework.MultiPoint, b: IndoorMapFramework.MultiPoint) -> Swift.Bool
 }
 public struct MultiPointFeature : IndoorMapFramework.GeoJSONObject {
   public var type: IndoorMapFramework.FeatureType
@@ -70,7 +69,7 @@ public enum Number : Swift.Equatable {
   }
   public static func == (a: IndoorMapFramework.Number, b: IndoorMapFramework.Number) -> Swift.Bool
 }
-extension IndoorMapFramework.Number : Swift.Codable {
+extension Number : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -81,7 +80,7 @@ public enum FeatureIdentifier {
     get
   }
 }
-extension IndoorMapFramework.FeatureIdentifier : Swift.Codable {
+extension FeatureIdentifier : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -93,22 +92,22 @@ public func mid(_ coord1: CoreLocation.CLLocationCoordinate2D, _ coord2: CoreLoc
 public protocol JSONType : Swift.Decodable, Swift.Encodable {
   var jsonValue: Any { get }
 }
-extension Swift.Int : IndoorMapFramework.JSONType {
+extension Int : IndoorMapFramework.JSONType {
   public var jsonValue: Any {
     get
   }
 }
-extension Swift.String : IndoorMapFramework.JSONType {
+extension String : IndoorMapFramework.JSONType {
   public var jsonValue: Any {
     get
   }
 }
-extension Swift.Double : IndoorMapFramework.JSONType {
+extension Double : IndoorMapFramework.JSONType {
   public var jsonValue: Any {
     get
   }
 }
-extension Swift.Bool : IndoorMapFramework.JSONType {
+extension Bool : IndoorMapFramework.JSONType {
   public var jsonValue: Any {
     get
   }
@@ -119,16 +118,16 @@ public struct AnyJSONType : IndoorMapFramework.JSONType {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-extension IndoorMapFramework.Ring : Swift.Codable {
+extension Ring : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
 public struct MultiPolygon : Swift.Codable, Swift.Equatable {
   public var coordinates: [[[CoreLocation.CLLocationCoordinate2D]]]
   public init(_ coordinates: [[[CoreLocation.CLLocationCoordinate2D]]])
-  public static func == (a: IndoorMapFramework.MultiPolygon, b: IndoorMapFramework.MultiPolygon) -> Swift.Bool
-  public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: IndoorMapFramework.MultiPolygon, b: IndoorMapFramework.MultiPolygon) -> Swift.Bool
 }
 public struct MultiPolygonFeature : IndoorMapFramework.GeoJSONObject {
   public var type: IndoorMapFramework.FeatureType
@@ -139,15 +138,15 @@ public struct MultiPolygonFeature : IndoorMapFramework.GeoJSONObject {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-extension IndoorMapFramework.LineString {
+extension LineString {
   public func bezier(resolution: Swift.Int = 10000, sharpness: Swift.Double = 0.85) -> IndoorMapFramework.LineString?
 }
 public struct MultiLineString : Swift.Codable, Swift.Equatable {
   public var coordinates: [[CoreLocation.CLLocationCoordinate2D]]
   public init(_ coordinates: [[CoreLocation.CLLocationCoordinate2D]])
-  public static func == (a: IndoorMapFramework.MultiLineString, b: IndoorMapFramework.MultiLineString) -> Swift.Bool
-  public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: IndoorMapFramework.MultiLineString, b: IndoorMapFramework.MultiLineString) -> Swift.Bool
 }
 public struct MultiLineStringFeature : IndoorMapFramework.GeoJSONObject {
   public var type: IndoorMapFramework.FeatureType
@@ -164,15 +163,15 @@ public struct BoundingBox : Swift.Codable {
   public func contains(_ coordinate: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
   public var northWest: CoreLocation.CLLocationCoordinate2D
   public var southEast: CoreLocation.CLLocationCoordinate2D
-  public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public struct Point : Swift.Codable, Swift.Equatable {
   public var coordinates: CoreLocation.CLLocationCoordinate2D
   public init(_ coordinates: CoreLocation.CLLocationCoordinate2D)
-  public static func == (a: IndoorMapFramework.Point, b: IndoorMapFramework.Point) -> Swift.Bool
-  public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: IndoorMapFramework.Point, b: IndoorMapFramework.Point) -> Swift.Bool
 }
 public struct PointFeature : IndoorMapFramework.GeoJSONObject {
   public var type: IndoorMapFramework.FeatureType
@@ -190,7 +189,7 @@ public struct Ring {
     get
   }
 }
-extension IndoorMapFramework.Ring {
+extension Ring {
   public func contains(_ coordinate: CoreLocation.CLLocationCoordinate2D, ignoreBoundary: Swift.Bool = false) -> Swift.Bool
 }
 public enum GeometryType : Swift.String {
@@ -200,35 +199,35 @@ public enum GeometryType : Swift.String {
   case MultiPoint
   case MultiLineString
   case MultiPolygon
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
+  public init?(rawValue: Swift.String)
 }
 public struct Geometry : Swift.Codable {
   public var type: Swift.String
   public var geometryType: IndoorMapFramework.GeometryType? {
     get
   }
-  public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
-extension Swift.Double {
+extension Double {
   public func wrap(min minimumValue: CoreLocation.CLLocationDirection, max maximumValue: CoreLocation.CLLocationDirection) -> CoreLocation.CLLocationDirection
 }
-extension Swift.Double {
+extension Double {
   public func toRadians() -> IndoorMapFramework.LocationRadians
   public func toDegrees() -> CoreLocation.CLLocationDirection
 }
-extension Swift.Double {
+extension Double {
   public func difference(from beta: CoreLocation.CLLocationDirection) -> CoreLocation.CLLocationDirection
 }
-extension CoreLocation.CLLocationCoordinate2D : Swift.Codable {
+extension CLLocationCoordinate2D : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-extension CoreLocation.CLLocationCoordinate2D : Swift.Equatable {
+extension CLLocationCoordinate2D : Swift.Equatable {
   public init(_ radianCoordinate: IndoorMapFramework.RadianCoordinate2D)
   public static func == (lhs: CoreLocation.CLLocationCoordinate2D, rhs: CoreLocation.CLLocationCoordinate2D) -> Swift.Bool
   public func direction(to coordinate: CoreLocation.CLLocationCoordinate2D) -> CoreLocation.CLLocationDirection
@@ -238,13 +237,13 @@ extension CoreLocation.CLLocationCoordinate2D : Swift.Equatable {
 public enum FeatureType : Swift.String {
   case feature
   case featureCollection
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
 }
-extension IndoorMapFramework.FeatureType : Swift.Codable {
+extension FeatureType : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -264,7 +263,7 @@ public enum FeatureVariant {
     get
   }
 }
-extension IndoorMapFramework.FeatureVariant : Swift.Codable {
+extension FeatureVariant : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -276,8 +275,8 @@ public struct Feature : Swift.Codable {
 public enum GeoJSONType : Swift.String {
   case Feature
   case FeatureCollection
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -286,10 +285,10 @@ public enum GeoJSONError : Swift.Error {
   case unknownType
   case noTypeFound
   public static func == (a: IndoorMapFramework.GeoJSONError, b: IndoorMapFramework.GeoJSONError) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public class GeoJSON : Swift.Codable {
   public var decoded: Swift.Codable?
@@ -302,8 +301,8 @@ public class GeoJSON : Swift.Codable {
 @objc @_inheritsConvenienceInitializers @objcMembers public class BridgedPolygon : ObjectiveC.NSObject {
   @objc public func test()
   @objc public static func calculatePolygonArea(locations: [[CoreLocation.CLLocation]]) -> Swift.Double
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 public struct Polygon : Swift.Codable, Swift.Equatable {
   public var coordinates: [[CoreLocation.CLLocationCoordinate2D]]
@@ -314,9 +313,9 @@ public struct Polygon : Swift.Codable, Swift.Equatable {
   public var outerRing: IndoorMapFramework.Ring {
     get
   }
-  public static func == (a: IndoorMapFramework.Polygon, b: IndoorMapFramework.Polygon) -> Swift.Bool
-  public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: IndoorMapFramework.Polygon, b: IndoorMapFramework.Polygon) -> Swift.Bool
 }
 public struct PolygonFeature : IndoorMapFramework.GeoJSONObject {
   public var type: IndoorMapFramework.FeatureType
@@ -327,12 +326,12 @@ public struct PolygonFeature : IndoorMapFramework.GeoJSONObject {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-extension IndoorMapFramework.Polygon {
+extension Polygon {
   public var area: Swift.Double {
     get
   }
 }
-extension IndoorMapFramework.Polygon {
+extension Polygon {
   public func contains(_ coordinate: CoreLocation.CLLocationCoordinate2D, ignoreBoundary: Swift.Bool = false) -> Swift.Bool
 }
 public struct FeatureCollection : IndoorMapFramework.GeoJSONObject {
