@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, SourceType) {
-    huatu,
+    huatu = 1,
     amap,
 };
 
@@ -66,11 +66,14 @@ typedef NS_ENUM(NSUInteger, SourceType) {
 @property(nonatomic, copy) NSString *floorId4Filter;
 
 //MARK: ----20220412, v2 接口----
-//数据源 huatu 华途（默认）;amap 高德
+//数据源 huatu 华途（后台默认）;amap 高德
 @property (nonatomic,assign) SourceType source;
 
 /**
- 数据扩展，前端需求 暂时用不到。
+ 数据扩展，针对不同的数据扩展会过滤或者增加属性
+ filter_wheelchair 只返回包含wheelchair属性的数据（默认），仅在 source=huatu 起效
+
+ all 返回全部数据。（视障相关接口：extension必须传 all ）
  */
 @property (nonatomic,copy) NSString *extensions;
 
