@@ -121,6 +121,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// poi包含的子设施
 @property (nonatomic, strong) NSArray *subs;
 
+//MARK: 20220412 
+///室内地图名称
+@property (nonatomic,copy) NSString *mapName;
+
+///是否室内
+@property (nonatomic,assign) BOOL indoor;
+
 @end
 
 NS_ASSUME_NONNULL_END
