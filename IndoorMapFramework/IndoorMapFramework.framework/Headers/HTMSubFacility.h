@@ -50,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *mapping_key;
 
+///v2 新组合接口返回的本类 subclass 没有值了，需要在为 nil 时，通过 type 映射旧值
+@property (nonatomic,copy) NSString *type;
+
 @end
 
 NS_ASSUME_NONNULL_END

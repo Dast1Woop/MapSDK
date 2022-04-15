@@ -55,7 +55,7 @@ typedef NS_ENUM(NSUInteger, SourceType) {
 @property (nonatomic, assign) int pageNum;
 
 /**
- 优先策略 春芽 distance 距离优先（默认） wheelchair 无障碍优先 高德 distance 距离优先（默认） weight 权重优先
+ 优先策略,不传时，后台使用默认策略。传递的话，可选 距离优先(distance)、无障碍优先(wheelchair)
  */
 @property(nonatomic, copy) NSString *priority;
 
