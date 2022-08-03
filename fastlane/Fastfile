@@ -42,10 +42,12 @@ platform :ios do
   desc "Deploy a new version to the App Store"
   lane :release do |options|
    target_version = options[:version]
-  raise "The version is missed." if target_version.nil?
+   commit_desc = options[:commit_desc]
 
-  ensure_git_branch                                             # 确认 master 分支
-  ensure_git_status_clean                                       # 确认没有未提交的文件
+  raise "The version is missed." if target_version.nil?
+  raise "The commit_desc is missed." if commit_desc.nil?
+
+                                   # 确认没有未提交的文件
 
 #scan                                                          # 运行测试
 #sync_build_number_to_git                                      # 将 build 号设为 git commit 数
@@ -55,13 +57,16 @@ platform :ios do
              version_number: target_version)                    # 更新 podspec
 
 
-git_commit(path: ["./IndoorMapFramework.podspec"], message: "podspec版本号更新为#{target_version}")
+git_commit(path: ["./"], message:"podspec版本号更新为#{target_version}:#{commit_desc}", allow_nothing_to_commit:true)
 #git_commit_all(message: "Bump version to #{target_version}")  # 提交版本号修改
 #commit_version_bump(message: "Bump version to #{target_version} changelog_from_git_commits ",xcodeproj: "IndoorMapFramework.xcodeproj")  # 提交版本号修改
 
+ensure_git_branch                                             # 确认 master 分支
+ensure_git_status_clean    
+
   add_git_tag(
     tag: target_version,
-    message: changelog_from_git_commits(commits_count:2)
+    message: changelog_from_git_commits(commits_count:1)
   )                              # 设置 tag
   
   git_pull # Executes a simple git pull command
@@ -87,6 +92,12 @@ git_commit(path: ["./IndoorMapFramework.podspec"], message: "podspec版本号更
     #   success: false
     # )
   end
+
+  desc "pod push repo"
+  lane :mypodpush do
+    pod_push(path: "IndoorMapFramework.podspec", repo: "MySpecRepo", sources: ["https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git", "git@gitee.com:mylDast1/MySpecRepo-kit.git"], use_libraries:true,allow_warnings:true,verbose:true, skip_import_validation:true, use_modular_headers:true)
+  end
+
 end
 
 
